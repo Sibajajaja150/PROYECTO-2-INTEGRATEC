@@ -1,3 +1,7 @@
+#Elaborado por : Diego Vega y Esteba Sibaja
+#Fecha de creacion: 18/11/2020 8:34pm
+#ultima modificacion: XXXX
+#version: 3.8.1
 from bs4 import BeautifulSoup
 from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
@@ -20,4 +24,5 @@ for i in info:
 
 print(lista)
 def prueba():
-    print('prueba mod 12')
+    print('mundo')
+print(prueba())
