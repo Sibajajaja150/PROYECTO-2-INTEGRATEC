@@ -20,4 +20,4 @@ for i in info:
 
 print(lista)
 def prueba():
-    print('aiabdhba')
+    print('prueba mod')
