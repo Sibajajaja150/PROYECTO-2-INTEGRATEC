@@ -10,6 +10,7 @@ import requests
 import names
 import tkinter
 import random
+from datetime import time
 url = "https://www.tec.ac.cr/carreras"
 page = requests.get(url)
 soup = BeautifulSoup(page.content, "html.parser")
@@ -93,7 +94,7 @@ def asignarE(lista, num):
         n += 1
     return dicc
 def estudiantesPorSede(a,b,c,d,e):
-    matrizDicc = [["CTCC", asignarE(crearListaC(lista)[:10], a)],["CTLSC", asignarE(crearListaSC(lista), b)],["CTLSJ", asignarE(crearListaSJ(lista), c)],["CAA", asignarE(crearListaA(lista), d)],["CAL", asignarE(crearListaL(lista), e)]]
+    matrizDicc = [["CTCC", asignarE(crearListaC(lista), a)],["CTLSC", asignarE(crearListaSC(lista), b)],["CTLSJ", asignarE(crearListaSJ(lista), c)],["CAA", asignarE(crearListaA(lista), d)],["CAL", asignarE(crearListaL(lista), e)]]
     return matrizDicc
 def isNum(string):
     try:
@@ -114,3 +115,8 @@ def estudiantesPorSedeUsuario():
     print(validarEstudiantesPorSede(a,b,c,d,e))
     return ""
 estudiantesPorSedeUsuario()
+#dicc = asignarE(crearListaA(lista), 50)
+#estudiantes = dicc.values()
+#carreras = dicc.keys()
+#print(carreras)
+#print(estudiantes)
