@@ -23,6 +23,3 @@ for i in info:
         lista.append(i)
 
 print(lista)
-def prueba():
-    print('mundo')
-print(prueba())
