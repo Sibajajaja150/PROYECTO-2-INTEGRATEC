@@ -21,5 +21,4 @@ lista = []
 for i in info:
     if i != "":
         lista.append(i)
-
-print(lista)
+#def crearMatriz(lista):
