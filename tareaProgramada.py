@@ -9,6 +9,7 @@ from smtplib import SMTP
 import requests
 import names
 import tkinter
+import random
 url = "https://www.tec.ac.cr/carreras"
 page = requests.get(url)
 soup = BeautifulSoup(page.content, "html.parser")
@@ -29,10 +30,7 @@ def crearListaSJ(lista):
         else:
             if i not in listaSJ:
                 listaSJ += [i]
-    diccSJ = {}
-    for i in listaSJ:
-        diccSJ [i] = 0
-    return [diccSJ]
+    return listaSJ
 def crearListaC (lista):
     listaC = []
     for i in lista[8:]:
@@ -41,10 +39,7 @@ def crearListaC (lista):
         else:
             if i not in listaC:
                 listaC += [i]
-    diccC = {}
-    for i in listaC:
-        diccC [i] = 0
-    return [diccC]
+    return listaC
 #print(lista[68:])
 def crearListaSC(lista):
     listaSC = []
@@ -54,10 +49,7 @@ def crearListaSC(lista):
         else:
             if i not in listaSC:
                 listaSC += [i]
-    diccSC = {}
-    for i in listaSC:
-        diccSC [i] = 0
-    return [diccSC]
+    return listaSC
 def crearListaL(lista):
     listaL = []
     for i in lista[61:]:
@@ -66,10 +58,7 @@ def crearListaL(lista):
         else:
             if i not in listaL:
                 listaL += [i]
-    diccL = {}
-    for i in listaL:
-        diccL [i] = 0
-    return [diccL]
+    return listaL
 def crearListaA(lista):
     listaA = []
     for i in lista[68:]:
@@ -78,9 +67,50 @@ def crearListaA(lista):
         else:
             if i not in listaA:
                 listaA += [i]
-    diccA = {}
-    for i in listaA:
-        diccA [i] = 0
-    return [diccA]
-matrizDicc = [["CTCC", crearListaC(lista)],["CTLSC", crearListaSC(lista)],["CTLSJ", crearListaSJ(lista)],["CAA", crearListaA(lista)],["CAL", crearListaL(lista)]]
-print(matrizDicc)
+    return listaA
+def crearListaR(n, lista):
+    listaR = []
+    while len(listaR) != len(lista):
+        listaR += [random.randint(0,n)]
+    return listaR
+def sumaLista(lista):
+    res = 0
+    for i in lista:
+        res += i
+    return res        
+def crearListaRes(n, lista):
+    res = ""
+    while n != res:
+        i = crearListaR(n, lista)
+        res = sumaLista(i)
+    return i
+def asignarE(lista, num):
+    dicc = {}
+    listaR = crearListaRes(num, lista)
+    n = 0
+    for i in lista:
+        dicc[i] = listaR[n]
+        n += 1
+    return dicc
+def estudiantesPorSede(a,b,c,d,e):
+    matrizDicc = [["CTCC", asignarE(crearListaC(lista)[:10], a)],["CTLSC", asignarE(crearListaSC(lista), b)],["CTLSJ", asignarE(crearListaSJ(lista), c)],["CAA", asignarE(crearListaA(lista), d)],["CAL", asignarE(crearListaL(lista), e)]]
+    return matrizDicc
+def isNum(string):
+    try:
+        return type(eval(string)) == int
+    except:
+        return False
+def validarEstudiantesPorSede(a,b,c,d,e):
+    if isNum(a) and isNum(b) and isNum(c) and isNum(d) and isNum(e):
+        return estudiantesPorSede(int(a), int(b), int(c), int(d), int(e))
+    else:
+        print("Ingrese un numero valido")
+def estudiantesPorSedeUsuario():
+    a =input("Ingrese los estudiantes del Campus Tecnologico Central de Cartago ")
+    b = input("Ingrese los estudiantes del Campus Tecnologico Local de San Carlos ")
+    c = input("Ingrese los estudiantes del Campus Tecnologico Local de San Jose ")
+    d = input("Ingrese los estudiantes del Centro Academico de Alajuela ")
+    e = input("Ingrese los estudiantes del Centro Academico de Limon ")
+    print(validarEstudiantesPorSede(a,b,c,d,e))
+    return ""
+estudiantesPorSedeUsuario()
