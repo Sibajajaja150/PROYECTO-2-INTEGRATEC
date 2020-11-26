@@ -21,12 +21,6 @@ lista = []
 for i in info:
     if i != "":
         lista.append(i)
-<<<<<<< HEAD
 
 print(lista)
-def prueba():
-    print('prueba mod 12')
-    print('hola')
-=======
 #def crearMatriz(lista):
->>>>>>> 32751b9bc8ddec052dd9974dce94e7a95e25d357
