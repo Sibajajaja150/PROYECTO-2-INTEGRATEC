@@ -83,4 +83,4 @@ def crearListaA(lista):
         diccA [i] = 0
     return [diccA]
 matrizDicc = [["CTCC", crearListaC(lista)],["CTLSC", crearListaSC(lista)],["CTLSJ", crearListaSJ(lista)],["CAA", crearListaA(lista)],["CAL", crearListaL(lista)]]
-print(matrizDicc[0])
+print(matrizDicc)
