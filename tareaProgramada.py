@@ -21,4 +21,8 @@ lista = []
 for i in info:
     if i != "":
         lista.append(i)
-#def crearMatriz(lista):
+def crearMatriz(lista):
+    matrizDicc = [["CTCC"], ["CTLSC"], ["CTLSJ"], ["CAA"], ["CAL"]]
+    for i in lista:
+        listaAux = []
+        
