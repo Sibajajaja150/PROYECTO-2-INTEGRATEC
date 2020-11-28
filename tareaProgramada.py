@@ -114,7 +114,7 @@ def estudiantesPorSedeUsuario():
     e = input("Ingrese los estudiantes del Centro Academico de Limon ")
     print(validarEstudiantesPorSede(a,b,c,d,e))
     return ""
-estudiantesPorSedeUsuario()
+matrizSede = estudiantesPorSedeUsuario()
 #dicc = asignarE(crearListaA(lista), 50)
 #estudiantes = dicc.values()
 #carreras = dicc.keys()
