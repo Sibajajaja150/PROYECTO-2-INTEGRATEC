@@ -123,37 +123,3 @@ matrizSede = estudiantesPorSedeUsuario()
 #print(estudiantes)
 ###################INTERFAZ GRAFICA###################
 #inicio de la clase
-Matriz=[
-        [0,0,0,0,0,0,0], 
-
-        [0,0,0,0,0,0,0], 
-
-        [0,0,0,0,0,0,0], 
-
-        [0,0,0,0,0,0,0], 
-
-        [0,0,1,0,2,0,0],
-
-        [1,0,2,0,1,0,1]]
-
-class App(tkinter.Tk):
-    # BEGIN: funcion__init__
-    def __init__(self, cols, rows):
-        global Matriz   #utilice la var global
-        tkinter.Tk.__init__(self)   #init de TK, clases
-        
-        self.title("GUI Prototipo dos")
-        # variables que definen filas y columnas
-        self.cols = len(Matriz[0]) #cols del app son el largo de las filas de Matriz cols = 7
-        self.rows = len(Matriz)     #rows = 6, las filas de Matriz
-
-        # Frame para la ventana
-        self.mainFrame = tkinter.Frame(self)
-        self.minsize(800,800)
-        self.maxsize(800,800)
-        self.mainFrame.grid()
-def mainloop(self, n=0):
-        """Call the mainloop of Tk."""
-        self.tk.mainloop(n)
-app = App(6,6)
-app.mainloop()        
