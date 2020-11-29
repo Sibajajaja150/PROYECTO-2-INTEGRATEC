@@ -11,6 +11,7 @@ import requests
 import names
 import tkinter
 import random
+from tkinter import *
 from datetime import time
 url = "https://www.tec.ac.cr/carreras"
 page = requests.get(url)
@@ -115,7 +116,7 @@ def estudiantesPorSedeUsuario():
     e = input("Ingrese los estudiantes del Centro Academico de Limon ")
     print(validarEstudiantesPorSede(a,b,c,d,e))
     return ""
-matrizSede = estudiantesPorSedeUsuario()
+#matrizSede = estudiantesPorSedeUsuario()
 #dicc = asignarE(crearListaA(lista), 50)
 #estudiantes = dicc.values()
 #carreras = dicc.keys()
@@ -123,3 +124,10 @@ matrizSede = estudiantesPorSedeUsuario()
 #print(estudiantes)
 ###################INTERFAZ GRAFICA###################
 #inicio de la clase
+ventana = Tk() # crea una ventana
+ventana.title("ventana principal")
+ventana.geometry("1080x1080")
+ventana.resizable(FALSE, FALSE)
+panel = Frame(ventana, bg='green', width = 1080, height = 1080)
+panel.place(x=0, y=0)
+ventana.mainloop() 
