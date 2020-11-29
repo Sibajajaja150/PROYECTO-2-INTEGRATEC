@@ -2,6 +2,7 @@
 #Fecha de creacion: 18/11/2020 8:34pm
 #ultima modificacion: XXXX
 #version: 3.8.1
+#IMPORTACION DE LIBRERIAS
 from bs4 import BeautifulSoup
 from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
@@ -120,3 +121,4 @@ matrizSede = estudiantesPorSedeUsuario()
 #carreras = dicc.keys()
 #print(carreras)
 #print(estudiantes)
+###################INTERFAZ GRAFICA###################
