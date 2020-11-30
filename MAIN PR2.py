@@ -11,6 +11,8 @@ import requests
 import names
 import random
 from datetime import time
+listaCE = []
+matrizSede = []
 url = "https://www.tec.ac.cr/carreras"
 page = requests.get(url)
 soup = BeautifulSoup(page.content, "html.parser")
@@ -114,7 +116,6 @@ def estudiantesPorSedeUsuario():
     e = input("Ingrese los estudiantes del Centro Academico de Limon ")
     print(validarEstudiantesPorSede(a,b,c,d,e))
     return ""
-matrizSede = validarEstudiantesPorSede('10','20','10','11','2')
 #dicc = asignarE(crearListaA(lista), 50)
 #estudiantes = dicc.values()
 #carreras = dicc.keys()
@@ -122,22 +123,16 @@ matrizSede = validarEstudiantesPorSede('10','20','10','11','2')
 #print(estudiantes)
 #print(matrizSede[0])
 def crearListaCarreras(lista):
-    listaN = []
-    for i in lista:
-        listaAux = []
-        k = i[1].keys()
-        for x in k:
-            listaAux += [x]
-        listaN += listaAux
+    listaN = [] 
+    k = lista[1].keys()
+    for x in k:
+        listaN += [x]
     return listaN
 def crearListaEstudiantes(lista):
-    listaN = []
-    for i in lista:
-        listaAux = []
-        k = i[1].values()
-        for x in k:
-            listaAux += [x]
-        listaN += listaAux
+    listaN = [] 
+    k = lista[1].values()
+    for x in k:
+        listaN += [x]
     return listaN
 def crearLista(lista1, lista2):
     listaF = []
@@ -147,4 +142,21 @@ def crearLista(lista1, lista2):
     return listaF
 #print(crearListaCarreras(matrizSede))
 #print(len(crearListaEstudiantes(matrizSede)))
-print(crearLista(crearListaCarreras(matrizSede), crearListaEstudiantes(matrizSede)))
+#print(crearLista(crearListaCarreras(matrizSede), crearListaEstudiantes(matrizSede)))
+matrizSede = validarEstudiantesPorSede("20", "15", "6", "12", "10")
+listaCE = [["CTCC", crearLista(crearListaCarreras(matrizSede[0]), crearListaEstudiantes(matrizSede[0]))], ["CTLSC", crearLista(crearListaCarreras(matrizSede[1]), crearListaEstudiantes(matrizSede[1]))], ["CTLSJ", crearLista(crearListaCarreras(matrizSede[2]), crearListaEstudiantes(matrizSede[2]))], ["CAA", crearLista(crearListaCarreras(matrizSede[3]), crearListaEstudiantes(matrizSede[3]))], ["CAL", crearLista(crearListaCarreras(matrizSede[4]), crearListaEstudiantes(matrizSede[4]))]]
+#print(listaCE[0])
+def diccEstudiantes(lista):
+    dicc = {}
+    contador = 0
+    for i in lista:
+        for j in i[1]:
+            if j[1] > 0:
+                x = j[1]
+                while x != 0:
+                    numeros = ["8", "6" , "7" , "9"]
+                    dicc["20210" + str(contador) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9))] = [names.get_first_name() + " " + names.get_last_name() + " " + names.get_last_name(), numeros[random.randint(0, 3)] + str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9)), i[0], j[0], 0]
+                    x -= 1
+        contador += 1
+    return dicc
+print(diccEstudiantes(listaCE))
