@@ -94,7 +94,7 @@ def asignarE(lista, num):
         n += 1
     return dicc
 def estudiantesPorSede(a,b,c,d,e):
-    matrizDicc = [["CTCC", asignarE(crearListaC(lista), a)],["CTLSC", asignarE(crearListaSC(lista), b)],["CTLSJ", asignarE(crearListaSJ(lista), c)],["CAA", asignarE(crearListaA(lista), d)],["CAL", asignarE(crearListaL(lista), e)]]
+    matrizDicc = [["CTCC", asignarE(crearListaC(lista)[:10], a)],["CTLSC", asignarE(crearListaSC(lista), b)],["CTLSJ", asignarE(crearListaSJ(lista), c)],["CAA", asignarE(crearListaA(lista), d)],["CAL", asignarE(crearListaL(lista), e)]]
     return matrizDicc
 def isNum(string):
     try:
@@ -114,9 +114,37 @@ def estudiantesPorSedeUsuario():
     e = input("Ingrese los estudiantes del Centro Academico de Limon ")
     print(validarEstudiantesPorSede(a,b,c,d,e))
     return ""
-#matrizSede = estudiantesPorSedeUsuario()
+matrizSede = validarEstudiantesPorSede('10','20','10','11','2')
 #dicc = asignarE(crearListaA(lista), 50)
 #estudiantes = dicc.values()
 #carreras = dicc.keys()
 #print(carreras)
 #print(estudiantes)
+#print(matrizSede[0])
+def crearListaCarreras(lista):
+    listaN = []
+    for i in lista:
+        listaAux = []
+        k = i[1].keys()
+        for x in k:
+            listaAux += [x]
+        listaN += listaAux
+    return listaN
+def crearListaEstudiantes(lista):
+    listaN = []
+    for i in lista:
+        listaAux = []
+        k = i[1].values()
+        for x in k:
+            listaAux += [x]
+        listaN += listaAux
+    return listaN
+def crearLista(lista1, lista2):
+    listaF = []
+    for i in lista1:
+        listaF += [[i, lista2[0]]]
+        lista2.pop(0)
+    return listaF
+#print(crearListaCarreras(matrizSede))
+#print(len(crearListaEstudiantes(matrizSede)))
+print(crearLista(crearListaCarreras(matrizSede), crearListaEstudiantes(matrizSede)))
