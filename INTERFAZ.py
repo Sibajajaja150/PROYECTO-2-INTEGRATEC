@@ -5,12 +5,15 @@
 #importacion  de librerias
 import tkinter
 from tkinter import *
+import pip
+from pip import *
+from 
 ###################INTERFAZ GRAFICA###################
 ventana = Tk() # crea una ventana
 ventana.title("ventana principal")
 ventana.geometry("900x800")
 ventana.resizable(FALSE, FALSE)
-imagenIntegratec = Image('C:\\Users\\esteb\\OneDrive\\Imágenes\\TEC\\integratec\\front.gif')
+imagenIntegratec = ImageTK.PhotoImage(Image.open(r'C:\Users\esteb\OneDrive\Imágenes\TEC\integratec.png'))
 image1 = Image.tk.PhotoImage(imagenIntegratec)
 w = image1.width()
 h = image1.height()
