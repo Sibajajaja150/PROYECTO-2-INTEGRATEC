@@ -24,7 +24,7 @@ labelNumero = Label(panel, text = "ELIGE UNA OPCION PARA LLEVAR A CABO! ", bg = 
 labelNumero.place(x=250, y=100)
 #BOTONES
 boton1 = Button(panel,text = '1)ESTUDIANTE POR SEDE',width=30, height = 2).place(x=350,y=150)
-boton2 = Button(panel,text = '2)ESTUDIANTES DE CARRERA POR SEDE',width=30, height = 2).place(x=350,y=200)
+boton2 = Button(panel,text = '2)ESTUDIANTES DE CARRERA POR SEDE',width=30, height = 2,command = 'AQUI VA LA FUNCION QUE HACE').place(x=350,y=200)
 boton3 = Button(panel,text = '3)CREAR MENTORES',width=30, height = 2).place(x=350,y=250)
 boton4 = Button(panel,text = '4)ASIGNAR MENTORES',width=30, height = 2).place(x=350,y=300)
 boton5 = Button(panel,text = '5)ACTUALIZAR ESTUDIANTE',width=30, height = 2).place(x=350,y=350)
