@@ -12,6 +12,7 @@ from pip import *
 ventana = Tk() # crea una ventana
 ventana.title("ventana principal")
 ventana.iconbitmap(r'C:\Users\esteb\OneDrive\Imágenes\TEC\iconoPython.png')
+
 ventana.geometry("900x800")
 ventana.resizable(FALSE, FALSE)
 panel = Frame(ventana, bg='blue', width = 900, height = 800)
