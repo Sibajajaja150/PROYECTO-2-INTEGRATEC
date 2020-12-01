@@ -7,14 +7,12 @@ import tkinter
 from tkinter import *
 import pip
 from pip import *
-
 ###################INTERFAZ GRAFICA###################
 ventana = Tk() # crea una ventana
 ventana.title("ventana principal")
 ventana.iconbitmap(r'C:\Users\esteb\OneDrive\Imágenes\TEC\iconoPython.png')
-
 ventana.geometry("900x800")
 ventana.resizable(FALSE, FALSE)
-panel = Frame(ventana, bg='blue', width = 900, height = 800)
+panel = Frame(ventana, bg='gray18', width = 900, height = 800)
 panel.place(x=0, y=0)
 ventana.mainloop() 
