@@ -14,7 +14,7 @@ ventana.title("ventana integratec")#titulo de la ventana
 ventana.geometry("900x800")#tamaño de la ventana
 ventana.resizable(True, True)#opcionde modifacar el tamaño
 #PANEL 
-panel = Frame(ventana, bg='blue', width = 900, height = 800)#crea un panel dentro de la ventana donde se va a trabajar
+panel = Frame(ventana, bg='RoyalBlue3', width = 900, height = 800)#crea un panel dentro de la ventana donde se va a trabajar
 panel.place(x=0, y=0)#tamaño del panel
 #TEXTOS(LABELS)
 labelTitulo = Label(panel, text = "MENU INTEGRATEC", bg ='blue', fg = 'white',font = ('',25))#primer label con el titulo en el panel
