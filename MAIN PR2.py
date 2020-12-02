@@ -146,8 +146,8 @@ def crearLista(lista1, lista2):
 matrizSede = validarEstudiantesPorSede("20", "15", "6", "12", "10")
 listaCE = [["CTCC", crearLista(crearListaCarreras(matrizSede[0]), crearListaEstudiantes(matrizSede[0]))], ["CTLSC", crearLista(crearListaCarreras(matrizSede[1]), crearListaEstudiantes(matrizSede[1]))], ["CTLSJ", crearLista(crearListaCarreras(matrizSede[2]), crearListaEstudiantes(matrizSede[2]))], ["CAA", crearLista(crearListaCarreras(matrizSede[3]), crearListaEstudiantes(matrizSede[3]))], ["CAL", crearLista(crearListaCarreras(matrizSede[4]), crearListaEstudiantes(matrizSede[4]))]]
 #print(listaCE[0])
-def diccEstudiantes(lista):
-    dicc = {}
+def listaEstudiantes(lista):
+    lista = []
     contador = 0
     for i in lista:
         for j in i[1]:
@@ -155,8 +155,8 @@ def diccEstudiantes(lista):
                 x = j[1]
                 while x != 0:
                     numeros = ["8", "6" , "7" , "9"]
-                    dicc["20210" + str(contador) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9))] = [names.get_first_name() + " " + names.get_last_name() + " " + names.get_last_name(), numeros[random.randint(0, 3)] + str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9)), i[0], j[0], 0]
+                    lista += [["20210" + str(contador) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)), names.get_first_name() + " " + names.get_last_name() + " " + names.get_last_name(), numeros[random.randint(0, 3)] + str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9)), i[0], j[0], 0]]
                     x -= 1
         contador += 1
-    return dicc
-print(diccEstudiantes(listaCE))
+    return lista
+print(listaEstudiantes(listaCE))
