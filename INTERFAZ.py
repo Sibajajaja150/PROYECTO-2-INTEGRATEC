@@ -27,7 +27,7 @@ labelNumero.place(x=250, y=100)
 def boton1():
     panel1 = Frame(ventana,bg='RoyalBlue3', width = 900, height = 800)
     panel1.place(x=0, y=0)
-    labelTitulo1 = Label(panel1, text = "ESTUDIANTES POR SEDE", bg ='blue', fg = 'white',font = ('',25))
+    labelTitulo1 = Label(panel1, text = "ESTUDIANTES POR SEDE", bg ='gray10', fg = 'white',font = ('',25))
     labelTitulo1.place(x=300,y=50)
 #BOTONES
 boton1 = Button(panel,text = '1)ESTUDIANTE POR SEDE',width=30, height = 2, command = boton1()).place(x=350,y=150)
