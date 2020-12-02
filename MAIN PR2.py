@@ -140,12 +140,8 @@ def crearLista(lista1, lista2):
         listaF += [[i, lista2[0]]]
         lista2.pop(0)
     return listaF
-#print(crearListaCarreras(matrizSede))
-#print(len(crearListaEstudiantes(matrizSede)))
-#print(crearLista(crearListaCarreras(matrizSede), crearListaEstudiantes(matrizSede)))
 matrizSede = validarEstudiantesPorSede("20", "15", "6", "12", "10")
 listaCE = [["CTCC", crearLista(crearListaCarreras(matrizSede[0]), crearListaEstudiantes(matrizSede[0]))], ["CTLSC", crearLista(crearListaCarreras(matrizSede[1]), crearListaEstudiantes(matrizSede[1]))], ["CTLSJ", crearLista(crearListaCarreras(matrizSede[2]), crearListaEstudiantes(matrizSede[2]))], ["CAA", crearLista(crearListaCarreras(matrizSede[3]), crearListaEstudiantes(matrizSede[3]))], ["CAL", crearLista(crearListaCarreras(matrizSede[4]), crearListaEstudiantes(matrizSede[4]))]]
-#print(listaCE[0])
 def listaEstudiantes(lista):
     lista = []
     contador = 0
@@ -159,4 +155,19 @@ def listaEstudiantes(lista):
                     x -= 1
         contador += 1
     return lista
-print(listaEstudiantes(listaCE))
+def enviarCorreos(correo):
+    mensaje = MIMEMultipart ("plain")
+    mensaje["From"] = "diegoesteban42069@gmail.com"
+    usuario = correo
+    mensaje["To"] = usuario
+    mensaje["Subject"] = "Prueba"
+    adjunto = MIMEBase("application", "octect-stream")
+    adjunto.set_payload(open("hola.txt", "rb").read())
+    adjunto.add_header("content-Disposition", "attachment; filename = 'Mensaje.txt'")
+    mensaje.attach(adjunto)
+    smtp = SMTP("smtp.gmail.com")
+    smtp.starttls()
+    smtp.login("diegoesteban42069@gmail.com", "420696969")
+    smtp.sendmail("diegoesteban42069@gmail.com", usuario, mensaje.as_string())
+    smtp.quit()
+#print(listaEstudiantes(listaCE))
