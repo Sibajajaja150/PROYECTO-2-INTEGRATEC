@@ -7,6 +7,7 @@ import tkinter
 from tkinter import *
 import pip
 from pip import *
+from MAIN PR2.py
 ###################INTERFAZ GRAFICA###################
 #VENTANA DEL PROGRAMA
 ventana = Tk() # crea una ventana
