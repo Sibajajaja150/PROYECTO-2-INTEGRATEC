@@ -24,6 +24,8 @@ labelTitulo.place(x=300,y=50)
 labelNumero = Label(panel, text = "ELIGE UNA OPCION PARA LLEVAR A CABO! ", bg = 'snow', fg = 'gray10',font = ('',15))#otro label con texto de opciones
 labelNumero.place(x=250, y=100)
 #FUNCIONES DE CADA BOTON
+def volverMenu():
+    ventana.mainloop()
 def boton1():
     panel1 = Frame(panel, bg='RoyalBlue3', width = 900, height = 800)
     panel1.place(x=0, y=0)
@@ -51,7 +53,7 @@ def boton1():
     inputCAL.place(x = 150, y = 300)
     estudiantesPorSede(eval(inputCTCC),eval(inputCTSC),eval(inputCTSJ),eval(inputCAA),eval(inputCAL))
 def boton2():
-    return''
+    panel2 = Frame(panel)
 #BOTONES
 boton1 = Button(panel,text = '1)ESTUDIANTE POR SEDE',width=30, height = 2, command = boton1).place(x=350,y=150)
 boton2 = Button(panel,text = '2)ESTUDIANTES DE CARRERA POR SEDE',width=30, height = 2).place(x=350,y=200)
