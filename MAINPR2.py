@@ -104,24 +104,12 @@ def isNum(string):
     except:
         return False
 def validarEstudiantesPorSede(a,b,c,d,e):
+    global matrizSede
     if isNum(a) and isNum(b) and isNum(c) and isNum(d) and isNum(e):
+        matrizSede = estudiantesPorSede(int(a), int(b), int(c), int(d), int(e))
         return estudiantesPorSede(int(a), int(b), int(c), int(d), int(e))
     else:
         print("Ingrese un numero valido")
-def estudiantesPorSedeUsuario():
-    a =input("Ingrese los estudiantes del Campus Tecnologico Central de Cartago ")
-    b = input("Ingrese los estudiantes del Campus Tecnologico Local de San Carlos ")
-    c = input("Ingrese los estudiantes del Campus Tecnologico Local de San Jose ")
-    d = input("Ingrese los estudiantes del Centro Academico de Alajuela ")
-    e = input("Ingrese los estudiantes del Centro Academico de Limon ")
-    print(validarEstudiantesPorSede(a,b,c,d,e))
-    return ""
-#dicc = asignarE(crearListaA(lista), 50)
-#estudiantes = dicc.values()
-#carreras = dicc.keys()
-#print(carreras)
-#print(estudiantes)
-#print(matrizSede[0])
 def crearListaCarreras(lista):
     listaN = [] 
     k = lista[1].keys()
@@ -140,8 +128,6 @@ def crearLista(lista1, lista2):
         listaF += [[i, lista2[0]]]
         lista2.pop(0)
     return listaF
-matrizSede = validarEstudiantesPorSede("3", "5", "6", "2", "1")
-listaCE = [["CTCC", crearLista(crearListaCarreras(matrizSede[0]), crearListaEstudiantes(matrizSede[0]))], ["CTLSC", crearLista(crearListaCarreras(matrizSede[1]), crearListaEstudiantes(matrizSede[1]))], ["CTLSJ", crearLista(crearListaCarreras(matrizSede[2]), crearListaEstudiantes(matrizSede[2]))], ["CAA", crearLista(crearListaCarreras(matrizSede[3]), crearListaEstudiantes(matrizSede[3]))], ["CAL", crearLista(crearListaCarreras(matrizSede[4]), crearListaEstudiantes(matrizSede[4]))]]
 def listaEstudiantes(lista):
     listaN = []
     contador = 0
@@ -182,3 +168,8 @@ def actualizarEstudiante(carnet, nombre, telefono, correo, dicc):
     dicc[carnet][5] = correo
     print(dicc[carnet])
     return ""
+validarEstudiantesPorSede("6", "8", "5", "3", "3")
+listaCE = [["CTCC", crearLista(crearListaCarreras(matrizSede[0]), crearListaEstudiantes(matrizSede[0]))], ["CTLSC", crearLista(crearListaCarreras(matrizSede[1]), crearListaEstudiantes(matrizSede[1]))], ["CTLSJ", crearLista(crearListaCarreras(matrizSede[2]), crearListaEstudiantes(matrizSede[2]))], ["CAA", crearLista(crearListaCarreras(matrizSede[3]), crearListaEstudiantes(matrizSede[3]))], ["CAL", crearLista(crearListaCarreras(matrizSede[4]), crearListaEstudiantes(matrizSede[4]))]]
+diccEstudiantes = {listaCE[0][0]:listaCE[0][1], listaCE[1][0]:listaCE[1][1], listaCE[2][0]:listaCE[2][1], listaCE[3][0]:listaCE[3][1], listaCE[4][0]:listaCE[4][1]}
+h = listaEstudiantes(listaCE)
+print(h)

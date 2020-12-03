@@ -49,7 +49,7 @@ def boton1():
     inputCAA.place(x = 150, y = 250)
     inputCAL = Text(panel, width = 30, height = 2)
     inputCAL.place(x = 150, y = 300)
-    estudiantesPorSede(inputCTCC,inputCTSC,inputCTSJ,inputCAA,inputCAL)
+    estudiantesPorSede(eval(inputCTCC),eval(inputCTSC),eval(inputCTSJ),eval(inputCAA),eval(inputCAL))
 def boton2():
     return''
 #BOTONES
