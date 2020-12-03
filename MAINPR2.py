@@ -140,10 +140,10 @@ def crearLista(lista1, lista2):
         listaF += [[i, lista2[0]]]
         lista2.pop(0)
     return listaF
-matrizSede = validarEstudiantesPorSede("20", "15", "6", "12", "10")
+matrizSede = validarEstudiantesPorSede("3", "5", "6", "2", "1")
 listaCE = [["CTCC", crearLista(crearListaCarreras(matrizSede[0]), crearListaEstudiantes(matrizSede[0]))], ["CTLSC", crearLista(crearListaCarreras(matrizSede[1]), crearListaEstudiantes(matrizSede[1]))], ["CTLSJ", crearLista(crearListaCarreras(matrizSede[2]), crearListaEstudiantes(matrizSede[2]))], ["CAA", crearLista(crearListaCarreras(matrizSede[3]), crearListaEstudiantes(matrizSede[3]))], ["CAL", crearLista(crearListaCarreras(matrizSede[4]), crearListaEstudiantes(matrizSede[4]))]]
 def listaEstudiantes(lista):
-    lista = []
+    listaN = []
     contador = 0
     for i in lista:
         for j in i[1]:
@@ -151,10 +151,15 @@ def listaEstudiantes(lista):
                 x = j[1]
                 while x != 0:
                     numeros = ["8", "6" , "7" , "9"]
-                    lista += [["20210" + str(contador) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)), names.get_first_name() + " " + names.get_last_name() + " " + names.get_last_name(), numeros[random.randint(0, 3)] + str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9)), i[0], j[0], 0]]
+                    listaN += [["20210" + str(contador) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)), names.get_first_name() + " " + names.get_last_name() + " " + names.get_last_name(), numeros[random.randint(0, 3)] + str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9)), i[0], j[0], 0, ""]]
                     x -= 1
         contador += 1
-    return lista
+    return listaN
+def makeDicc(lista):
+    dicc = {}
+    for i in lista:
+        dicc[i[0]] = i[1:]
+    return dicc
 def enviarCorreos(correo):
     mensaje = MIMEMultipart ("plain")
     mensaje["From"] = "diegoesteban42069@gmail.com"
@@ -170,4 +175,10 @@ def enviarCorreos(correo):
     smtp.login("diegoesteban42069@gmail.com", "420696969")
     smtp.sendmail("diegoesteban42069@gmail.com", usuario, mensaje.as_string())
     smtp.quit()
-#print(listaEstudiantes(listaCE))
+dicc=makeDicc(listaEstudiantes(listaCE))
+def actualizarEstudiante(carnet, nombre, telefono, correo, dicc):
+    dicc[carnet][0] = nombre
+    dicc[carnet][1] = telefono
+    dicc[carnet][5] = correo
+    print(dicc[carnet])
+    return ""
