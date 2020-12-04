@@ -33,4 +33,36 @@ def leer(nombreArchivoLeer):
     except:
         print('error al leer:',nombreArchivoLeer)
     return lista 
-print(listaCE)
+#print(listaCE)
+def asignarLista(lista,archivo):
+    '''
+    funcion: lee un archivo y los asigna a variable
+    e:lista y archivo
+    s:
+    '''
+    lista = leer(archivo)
+    return lista
+def setLista(lista,archivo):
+    '''
+    funcion: agarra datos de una var global y los guarda en lista
+    e: lista y archivo
+    s: lista 
+    '''
+    guardar(archivo,lista)
+    return []
+def existeArch(lista,archivo):
+    '''
+    busca y verifica que exista un archivo
+    e: lista y archivo
+    s:
+    '''
+    try:
+        lista = asignarLista(lista,archivo)
+        return lista
+    except:
+        setLista(lista,archivo)
+        return lista
+def htmlCrear(archivo,mensaje):
+    arch = open(archivo,'w')
+    arch.write(mensaje)
+    arch.close()
