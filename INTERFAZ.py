@@ -23,8 +23,13 @@ labelTitulo.place(x=300,y=50)
 #TEXTOS(LABELS)
 labelNumero = Label(panel, text = "ELIGE UNA OPCION PARA LLEVAR A CABO! ", bg = 'snow', fg = 'gray10',font = ('',15))#otro label con texto de opciones
 labelNumero.place(x=250, y=100)
+#FUNCIONES VARIAS
+def validNum(num):
+    try:
+        int(num)
+    except:
+        tkinter.messagebox.showerror(title='validacion', message='debe ingresar enteros')
 #FUNCIONES DE CADA BOTON
-
 def boton1():
     '''
     funcion: crea una nueva ventana para el reto 1
