@@ -70,7 +70,7 @@ def boton1():
     inputCAA.place(x = 150, y = 250)
     inputCAL = Text(panel1, width = 30, height = 2)
     inputCAL.place(x = 150, y = 300)
-    botonGuardar = Button(panel1,text = 'GUARDAR',width=30, height = 2, command = estudiantesPorSede(eval(inputCTCC),eval(inputCTSC),eval(inputCTSJ),eval(inputCAA),eval(inputCAL)))
+    botonGuardar = Button(panel1,text = 'GUARDAR',width=30, height = 2, command = validarEstudiantesPorSede(inputCTCC,inputCTSC,inputCTSJ,inputCAA,inputCAL))
     botonGuardar.place(x=150,y=400)
     return ''
 def boton2():
