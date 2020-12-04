@@ -174,16 +174,116 @@ listaCE = [["CTCC", crearLista(crearListaCarreras(matrizSede[0]), crearListaEstu
 #diccEstudiantes = {listaCE[0][0]:listaCE[0][1], listaCE[1][0]:listaCE[1][1], listaCE[2][0]:listaCE[2][1], listaCE[3][0]:listaCE[3][1], listaCE[4][0]:listaCE[4][1]}
 h = listaEstudiantes(listaCE)
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 print(h)
 print(makeDicc(h))
 def buscarSede(nombre, lista):
+=======
+#print(h)
+#print(makeDicc(h))
+def separarLista(lista):
+    listaN = [["CTCC"], ["CTLSC"], ["CTLSJ"], ["CAA"], ["CAL"]]
+>>>>>>> Stashed changes
     for i in lista:
-        if i[0] == nombre.upper():
-            return i
-    print("No existe la sede")
+        if i[3] == "CTCC":
+            listaN[0] += [i]
+        elif i[3] == "CTLSC":
+            listaN[1] += [i]
+        elif i[3] == "CTLSJ":
+            listaN[2] += [i]
+        elif i[3] == "CAA":
+            listaN[3] += [i] 
+        elif i[3] == "CAL":
+            listaN[4] += [i]   
+    return listaN
+def crearHTMLSede(lista, sede):
+    if sede.upper() == "CTCC":
+        file = open("reporteSedeCartago.html", 'w')
+        file.write("Centro Tecnologico Central de Cartago")
+        for i in lista[0][1]:
+            file.write("\n")
+            file.write("Carnet: " + i[0])
+            file.write("\n")
+            file.write("Nombre: " + i[1])
+            file.write("\n")
+            file.write("Numero de telefono: " + i[2])
+            file.write("\n")
+            file.write("Carrera: " + i[4])
+            file.write("\n")
+            file.write("Mentor: " + i[5])
+            file.write("\n")
+            file.write("Correo: " + i[6])
+    elif sede.upper() == "CTLSC":
+        file = open("reporteSedeSanCarlos.html", 'w')
+        file.write("Centro Tecnologico Local de San Carlos")
+        for i in lista[1][1]:
+            file.write("\n")
+            file.write("Carnet: " + i[0])
+            file.write("\n")
+            file.write("Nombre: " + i[1])
+            file.write("\n")
+            file.write("Numero de telefono: " + i[2])
+            file.write("\n")
+            file.write("Carrera: " + i[4])
+            file.write("\n")
+            file.write("Mentor: " + i[5])
+            file.write("\n")
+            file.write("Correo: " + i[6])
+    elif sede.upper() == "CTLSJ":
+        file = open("reporteSedeSanJose.html", 'w')
+        file.write("Centro Tecnologico Local de San Jose")
+        for i in lista[2][1]:
+            file.write("\n")
+            file.write("Carnet: " + i[0])
+            file.write("\n")
+            file.write("Nombre: " + i[1])
+            file.write("\n")
+            file.write("Numero de telefono: " + i[2])
+            file.write("\n")
+            file.write("Carrera: " + i[4])
+            file.write("\n")
+            file.write("Mentor: " + i[5])
+            file.write("\n")
+            file.write("Correo: " + i[6])
+    elif sede.upper() == "CAA":
+        file = open("reporteSedeAlajuela.html", 'w')
+        file.write("Centro Academico de Alajuela")
+        for i in lista[3][1]:
+            file.write("\n")
+            file.write("Carnet: " + i[0])
+            file.write("\n")
+            file.write("Nombre: " + i[1])
+            file.write("\n")
+            file.write("Numero de telefono: " + i[2])
+            file.write("\n")
+            file.write("Carrera: " + i[4])
+            file.write("\n")
+            file.write("Mentor: " + i[5])
+            file.write("\n")
+            file.write("Correo: " + i[6])
+    elif sede.upper() == "CAL":
+        file = open("reporteSedeLimon.html", 'w')
+        file.write("Centro Academico de Limon")
+        for i in lista[4][1]:
+            file.write("\n")
+            file.write("Carnet: " + i[0])
+            file.write("\n")
+            file.write("Nombre: " + i[1])
+            file.write("\n")
+            file.write("Numero de telefono: " + i[2])
+            file.write("\n")
+            file.write("Carrera: " + i[4])
+            file.write("\n")
+            file.write("Mentor: " + i[5])
+            file.write("\n")
+            file.write("Correo: " + i[6])
     return ""
+<<<<<<< Updated upstream
 def crearHTMLSede():
     print ()
 =======
 #print(h)
+>>>>>>> Stashed changes
+=======
+print(separarLista(h)[0][1])
 >>>>>>> Stashed changes
