@@ -4,6 +4,7 @@
 #version: 3.8.1
 #IMPORTACION DE LIBRERIAS
 import pickle
+from MAINPR2 import *
 #funciones
 def grabar(nombreArchivoGrabar,lista):
     '''
@@ -32,3 +33,4 @@ def leer(nombreArchivoLeer):
     except:
         print('error al leer:',nombreArchivoLeer)
     return lista 
+print(listaCE)
