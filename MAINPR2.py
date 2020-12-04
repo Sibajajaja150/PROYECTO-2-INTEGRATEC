@@ -173,17 +173,10 @@ listaCE = [["CTCC", crearLista(crearListaCarreras(matrizSede[0]), crearListaEstu
 #print(listaCE)
 #diccEstudiantes = {listaCE[0][0]:listaCE[0][1], listaCE[1][0]:listaCE[1][1], listaCE[2][0]:listaCE[2][1], listaCE[3][0]:listaCE[3][1], listaCE[4][0]:listaCE[4][1]}
 h = listaEstudiantes(listaCE)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-print(h)
-print(makeDicc(h))
-def buscarSede(nombre, lista):
-=======
 #print(h)
 #print(makeDicc(h))
 def separarLista(lista):
     listaN = [["CTCC"], ["CTLSC"], ["CTLSJ"], ["CAA"], ["CAL"]]
->>>>>>> Stashed changes
     for i in lista:
         if i[3] == "CTCC":
             listaN[0] += [i]
@@ -278,12 +271,3 @@ def crearHTMLSede(lista, sede):
             file.write("\n")
             file.write("Correo: " + i[6])
     return ""
-<<<<<<< Updated upstream
-def crearHTMLSede():
-    print ()
-=======
-#print(h)
->>>>>>> Stashed changes
-=======
-print(separarLista(h)[0][1])
->>>>>>> Stashed changes
