@@ -311,4 +311,4 @@ def crearHTMLCarrera(lista, carrera):
     else:
         print("Ingrese una carrera existente")
 #crearHTMLCarrera(h, 'Administración de Empresas ')
-print(h)
+#print(validarEstudiantesPorSede('2', '4', '5', '3', '3'))
