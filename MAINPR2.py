@@ -46,7 +46,6 @@ def crearListaC (lista):
             if i not in listaC:
                 listaC += [i]
     return listaC
-#print(lista[68:])
 def crearListaSC(lista):
     listaSC = []
     for i in lista[48:]:
@@ -111,8 +110,6 @@ def validarEstudiantesPorSede(a,b,c,d,e):
     if isNum(a) and isNum(b) and isNum(c) and isNum(d) and isNum(e):
         matrizSede = estudiantesPorSede(int(a), int(b), int(c), int(d), int(e))
         return estudiantesPorSede(int(a), int(b), int(c), int(d), int(e))
-    else:
-        print("Ingrese un numero valido")
 def crearListaCarreras(lista):
     listaN = [] 
     k = lista[1].keys()
@@ -164,18 +161,17 @@ def enviarCorreos(correo):
     smtp.login("diegoesteban42069@gmail.com", "420696969")
     smtp.sendmail("diegoesteban42069@gmail.com", usuario, mensaje.as_string())
     smtp.quit()
-dicc=makeDicc(listaEstudiantes(listaCE))
+#dicc=makeDicc(listaEstudiantes(listaCE))
 def actualizarEstudiante(carnet, nombre, telefono, correo, dicc):
     dicc[carnet][0] = nombre
     dicc[carnet][1] = telefono
     dicc[carnet][5] = correo
     print(dicc[carnet])
     return ""
-validarEstudiantesPorSede('2', '4', '5', '3', '3')
-listaCE = [["CTCC", crearLista(crearListaCarreras(matrizSede[0]), crearListaEstudiantes(matrizSede[0]))], ["CTLSC", crearLista(crearListaCarreras(matrizSede[1]), crearListaEstudiantes(matrizSede[1]))], ["CTLSJ", crearLista(crearListaCarreras(matrizSede[2]), crearListaEstudiantes(matrizSede[2]))], ["CAA", crearLista(crearListaCarreras(matrizSede[3]), crearListaEstudiantes(matrizSede[3]))], ["CAL", crearLista(crearListaCarreras(matrizSede[4]), crearListaEstudiantes(matrizSede[4]))]]
+#validarEstudiantesPorSede('2', '4', '5', '3', '3')
 #print(listaCE)
 #diccEstudiantes = {listaCE[0][0]:listaCE[0][1], listaCE[1][0]:listaCE[1][1], listaCE[2][0]:listaCE[2][1], listaCE[3][0]:listaCE[3][1], listaCE[4][0]:listaCE[4][1]}
-h = listaEstudiantes(listaCE)
+#h = listaEstudiantes(listaCE)
 #print(h)
 #print(makeDicc(h))
 def separarLista(lista):
@@ -288,7 +284,7 @@ def separarCarrera(lista, carrera):
             listaN += [i]
     return listaN
 def crearHTMLCarrera(lista, carrera):
-    lista = separarCarrera(h, carrera)
+    lista = separarCarrera(lista, carrera)
     file = open("reporte "+carrera+".html", "w")
     if lista != []:
         file.write(carrera)
@@ -311,4 +307,5 @@ def crearHTMLCarrera(lista, carrera):
     else:
         print("Ingrese una carrera existente")
 #crearHTMLCarrera(h, 'Administración de Empresas ')
-#print(validarEstudiantesPorSede('2', '4', '5', '3', '3'))
+
+print(matrizSede)
