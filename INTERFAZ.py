@@ -33,7 +33,7 @@ def validNum(num):
     try:
         int(num)
     except:
-        messagebox.showerror('debe insertar solo enteros!')
+        tkinter.messagebox.showerror('debe insertar solo enteros!')
 #def habilitarBotones()
 #FUNCIONES DE CADA BOTON
 def boton1():
