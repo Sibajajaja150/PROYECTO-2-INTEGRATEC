@@ -146,21 +146,18 @@ def makeDicc(lista):
     for i in lista:
         dicc[i[0]] = i[1:]
     return dicc
-def enviarCorreos(correo):
-    mensaje = MIMEMultipart ("plain")
-    mensaje["From"] = "diegoesteban42069@gmail.com"
-    usuario = correo
-    mensaje["To"] = usuario
-    mensaje["Subject"] = "Prueba"
-    adjunto = MIMEBase("application", "octect-stream")
-    adjunto.set_payload(open(archivo, "rb").read())
-    adjunto.add_header("content-Disposition", "attachment; filename = 'Mensaje.txt'")
-    mensaje.attach(adjunto)
-    smtp = SMTP("smtp.gmail.com")
-    smtp.starttls()
-    smtp.login("diegoesteban42069@gmail.com", "420696969")
-    smtp.sendmail("diegoesteban42069@gmail.com", usuario, mensaje.as_string())
-    smtp.quit()
+def listaMentores(lista):
+    listaN = []
+    contador = 0
+    for i in lista:
+        for j in i[1]:
+            if j[1] > 0:
+                x = round((j[1]*0.05), 0)
+                while int(x) != 0:
+                    listaN += [["20210" + str(contador) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)), names.get_first_name() + " " + names.get_last_name() + " " + names.get_last_name(), i[0], j[0], "0", ""]]
+                    x -= 1
+        contador += 1
+    return listaN
 #dicc=makeDicc(listaEstudiantes(listaCE))
 def actualizarEstudiante(carnet, nombre, telefono, correo, dicc):
     dicc[carnet][0] = nombre
@@ -168,11 +165,10 @@ def actualizarEstudiante(carnet, nombre, telefono, correo, dicc):
     dicc[carnet][5] = correo
     print(dicc[carnet])
     return ""
-#validarEstudiantesPorSede('2', '4', '5', '3', '3')
+validarEstudiantesPorSede('2', '4', '11', '18', '25')
+listaCE = [["CTCC", crearLista(crearListaCarreras(matrizSede[0]), crearListaEstudiantes(matrizSede[0]))], ["CTLSC", crearLista(crearListaCarreras(matrizSede[1]), crearListaEstudiantes(matrizSede[1]))], ["CTLSJ", crearLista(crearListaCarreras(matrizSede[2]), crearListaEstudiantes(matrizSede[2]))], ["CAA", crearLista(crearListaCarreras(matrizSede[3]), crearListaEstudiantes(matrizSede[3]))], ["CAL", crearLista(crearListaCarreras(matrizSede[4]), crearListaEstudiantes(matrizSede[4]))]]
 #print(listaCE)
 #diccEstudiantes = {listaCE[0][0]:listaCE[0][1], listaCE[1][0]:listaCE[1][1], listaCE[2][0]:listaCE[2][1], listaCE[3][0]:listaCE[3][1], listaCE[4][0]:listaCE[4][1]}
-#h = listaEstudiantes(listaCE)
-#print(h)
 #print(makeDicc(h))
 def separarLista(lista):
     listaN = [["CTCC"], ["CTLSC"], ["CTLSJ"], ["CAA"], ["CAL"]]
@@ -277,6 +273,12 @@ def crearHTMLSede(lista, sede):
     else:
         print("Ingrese una sede existente")
     return ""
+def HTMLSede(lista):
+    crearHTMLSede(lista, "CTCC")
+    crearHTMLSede(lista, "CTLSC")
+    crearHTMLSede(lista, "CTLSJ")
+    crearHTMLSede(lista, "CAA")
+    crearHTMLSede(lista, "CAL")
 def separarCarrera(lista, carrera):
     listaN = []
     for i in lista:
@@ -306,6 +308,19 @@ def crearHTMLCarrera(lista, carrera):
             file.write("Correo: " + i[6])
     else:
         print("Ingrese una carrera existente")
-#crearHTMLCarrera(h, 'Administración de Empresas ')
-
-print(matrizSede)
+def enviarCorreos(correo):
+    mensaje = MIMEMultipart ("plain")
+    mensaje["From"] = "diegoesteban42069@gmail.com"
+    usuario = correo
+    mensaje["To"] = usuario
+    mensaje["Subject"] = "Prueba"
+    adjunto = MIMEBase("application", "octect-stream")
+    adjunto.set_payload(open(archivo, "rb").read())
+    adjunto.add_header("content-Disposition", "attachment; filename = 'Mensaje.txt'")
+    mensaje.attach(adjunto)
+    smtp = SMTP("smtp.gmail.com")
+    smtp.starttls()
+    smtp.login("diegoesteban42069@gmail.com", "420696969")
+    smtp.sendmail("diegoesteban42069@gmail.com", usuario, mensaje.as_string())
+    smtp.quit()
+HTMLSede(separarLista(listaEstudiantes(listaCE)))
