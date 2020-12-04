@@ -173,6 +173,7 @@ listaCE = [["CTCC", crearLista(crearListaCarreras(matrizSede[0]), crearListaEstu
 #print(listaCE)
 #diccEstudiantes = {listaCE[0][0]:listaCE[0][1], listaCE[1][0]:listaCE[1][1], listaCE[2][0]:listaCE[2][1], listaCE[3][0]:listaCE[3][1], listaCE[4][0]:listaCE[4][1]}
 h = listaEstudiantes(listaCE)
+<<<<<<< Updated upstream
 print(h)
 print(makeDicc(h))
 def buscarSede(nombre, lista):
@@ -183,3 +184,6 @@ def buscarSede(nombre, lista):
     return ""
 def crearHTMLSede():
     print ()
+=======
+#print(h)
+>>>>>>> Stashed changes
