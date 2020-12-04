@@ -8,6 +8,7 @@ from tkinter import *
 import pip
 from pip import *
 from MAINPR2 import *
+import tkinter.ttk
 ###################INTERFAZ GRAFICA###################
 #VENTANA DEL PROGRAMA
 ventana = Tk() # crea una ventana
@@ -51,7 +52,7 @@ def boton1():
     panel1 = Frame(ventana1, bg='RoyalBlue3', width = 900, height = 800)
     panel1.place(x=0, y=0)
     labelTitulo1 = Label(panel1, text = "estudiantes por sede", bg ='snow', fg = 'gray10',font = ('',20))
-    labelTitulo1.place(x=300,y=25)
+    labelTitulo1.place(x=150,y=50)
     ctcc = Label(panel1, text = 'CTCC', bg = 'snow', fg = 'gray10', font = ('',15))
     ctcc.place(x=80,y=100)
     ctsc = Label(panel1, text = 'CTSC', bg = 'snow', fg = 'gray10', font = ('',15))
@@ -62,18 +63,20 @@ def boton1():
     caa.place(x=80,y=250)
     cal = Label(panel1, text = 'CAL', bg = 'snow', fg = 'gray10', font = ('',15))
     cal.place(x=80,y=300)
-    inputCTCC = Text(panel1, width = 30, height = 2)#pone un cuadro de texto donde se pueda escrbir
+    inputCTCC = Entry(panel1)#pone un cuadro de texto donde se pueda escrbir
     inputCTCC.place(x = 150, y = 100)
-    inputCTSC = Text(panel1, width = 30, height = 2)
+    inputCTSC = Entry(panel1)
     inputCTSC.place(x = 150, y = 150)
-    inputCTSJ = Text(panel1, width = 30, height = 2)
+    inputCTSJ = Entry(panel1)
     inputCTSJ.place(x = 150, y = 200)
-    inputCAA = Text(panel1, width = 30, height = 2)
+    inputCAA = Entry(panel1)
     inputCAA.place(x = 150, y = 250)
-    inputCAL = Text(panel1, width = 30, height = 2)
+    inputCAL = Entry(panel1)
     inputCAL.place(x = 150, y = 300)
     botonGuardar = Button(panel1,text = 'guardar',width=30, height = 2, command = validarEstudiantesPorSede(inputCTCC,inputCTSC,inputCTSJ,inputCAA,inputCAL))
     botonGuardar.place(x=150,y=400)
+    botonGuarda = Button(panel1,text = 'guarda',width=30, height = 2, command = print(matrizSede))
+    botonGuarda.place(x=300,y=400)
     return ''
 def boton2():
     '''
