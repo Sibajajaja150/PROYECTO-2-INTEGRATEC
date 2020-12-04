@@ -27,8 +27,8 @@ labelNumero.place(x=250, y=100)
 
 def boton1():
     ventana2 = Tk() # crea una ventana
-    ventana2.title("ventana integratec")#titulo de la ventana
-    ventana2.geometry("900x800")#tamaño de la ventana
+    ventana2.title('estudiantes por sede')#titulo de la ventana
+    ventana2.geometry("800x800")#tamaño de la ventana
     ventana2.resizable(True, True)#opcionde modifacar el tamaño
     panel1 = Frame(ventana2, bg='RoyalBlue3', width = 900, height = 800)
     panel1.place(x=0, y=0)
@@ -120,4 +120,4 @@ boton7 = Button(panel,text = '7)CREAR BASE DE DATOS EN EXCEL',width=30, height =
 boton8 = Button(panel,text = '8)ENVIAR CORREO',width=30, height = 2).place(x=350,y=500)
 boton9 = Button(panel,text = '9)SALIR',width=30, height = 2).place(x=350,y=550)
 
-print(ventana.mainloop())#LLAMADA PRINCIPAL
+ventana.mainloop()#LLAMADA PRINCIPAL
