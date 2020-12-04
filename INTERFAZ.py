@@ -26,7 +26,6 @@ labelNumero.place(x=250, y=100)
 #FUNCIONES DE CADA BOTON
 
 def boton1():
-    
     panel1 = Frame(ventana, bg='RoyalBlue3', width = 900, height = 800)
     panel1.place(x=0, y=0)
     labelTitulo1 = Label(panel1, text = "ESTUDIANTES POR SEDE", bg ='snow', fg = 'gray10',font = ('',20))
@@ -117,4 +116,4 @@ boton7 = Button(panel,text = '7)CREAR BASE DE DATOS EN EXCEL',width=30, height =
 boton8 = Button(panel,text = '8)ENVIAR CORREO',width=30, height = 2).place(x=350,y=500)
 boton9 = Button(panel,text = '9)SALIR',width=30, height = 2).place(x=350,y=550)
 
-ventana.mainloop()#LLAMADA PRINCIPAL
+ventana.mainloop() #LLAMADA PRINCIPAL
