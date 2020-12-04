@@ -11,6 +11,9 @@ import requests
 import names
 import random
 from datetime import time
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+archivo = ""
 listaCE = []
 matrizSede = []
 url = "https://www.tec.ac.cr/carreras"
@@ -137,7 +140,7 @@ def listaEstudiantes(lista):
                 x = j[1]
                 while x != 0:
                     numeros = ["8", "6" , "7" , "9"]
-                    listaN += [["20210" + str(contador) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)), names.get_first_name() + " " + names.get_last_name() + " " + names.get_last_name(), numeros[random.randint(0, 3)] + str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9)), i[0], j[0], 0, ""]]
+                    listaN += [["20210" + str(contador) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)), names.get_first_name() + " " + names.get_last_name() + " " + names.get_last_name(), numeros[random.randint(0, 3)] + str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9))+ str(random.randint(0, 9)), i[0], j[0], "0", ""]]
                     x -= 1
         contador += 1
     return listaN
@@ -153,7 +156,7 @@ def enviarCorreos(correo):
     mensaje["To"] = usuario
     mensaje["Subject"] = "Prueba"
     adjunto = MIMEBase("application", "octect-stream")
-    adjunto.set_payload(open("hola.txt", "rb").read())
+    adjunto.set_payload(open(archivo, "rb").read())
     adjunto.add_header("content-Disposition", "attachment; filename = 'Mensaje.txt'")
     mensaje.attach(adjunto)
     smtp = SMTP("smtp.gmail.com")
@@ -193,7 +196,8 @@ def crearHTMLSede(lista, sede):
     if sede.upper() == "CTCC":
         file = open("reporteSedeCartago.html", 'w')
         file.write("Centro Tecnologico Central de Cartago")
-        for i in lista[0][1]:
+        for i in lista[0][1:]:
+            file.write("\n")
             file.write("\n")
             file.write("Carnet: " + i[0])
             file.write("\n")
@@ -209,7 +213,8 @@ def crearHTMLSede(lista, sede):
     elif sede.upper() == "CTLSC":
         file = open("reporteSedeSanCarlos.html", 'w')
         file.write("Centro Tecnologico Local de San Carlos")
-        for i in lista[1][1]:
+        for i in lista[1][1:]:
+            file.write("\n")
             file.write("\n")
             file.write("Carnet: " + i[0])
             file.write("\n")
@@ -225,7 +230,8 @@ def crearHTMLSede(lista, sede):
     elif sede.upper() == "CTLSJ":
         file = open("reporteSedeSanJose.html", 'w')
         file.write("Centro Tecnologico Local de San Jose")
-        for i in lista[2][1]:
+        for i in lista[2][1:]:
+            file.write("\n")
             file.write("\n")
             file.write("Carnet: " + i[0])
             file.write("\n")
@@ -241,7 +247,8 @@ def crearHTMLSede(lista, sede):
     elif sede.upper() == "CAA":
         file = open("reporteSedeAlajuela.html", 'w')
         file.write("Centro Academico de Alajuela")
-        for i in lista[3][1]:
+        for i in lista[3][1:]:
+            file.write("\n")
             file.write("\n")
             file.write("Carnet: " + i[0])
             file.write("\n")
@@ -257,7 +264,8 @@ def crearHTMLSede(lista, sede):
     elif sede.upper() == "CAL":
         file = open("reporteSedeLimon.html", 'w')
         file.write("Centro Academico de Limon")
-        for i in lista[4][1]:
+        for i in lista[4][1:]:
+            file.write("\n")
             file.write("\n")
             file.write("Carnet: " + i[0])
             file.write("\n")
@@ -270,8 +278,37 @@ def crearHTMLSede(lista, sede):
             file.write("Mentor: " + i[5])
             file.write("\n")
             file.write("Correo: " + i[6])
+    else:
+        print("Ingrese una sede existente")
     return ""
-<<<<<<< Updated upstream
-=======
-print(separarLista(h)[0][1])
->>>>>>> Stashed changes
+def separarCarrera(lista, carrera):
+    listaN = []
+    for i in lista:
+        if i[4].upper() == carrera.upper():
+            listaN += [i]
+    return listaN
+def crearHTMLCarrera(lista, carrera):
+    lista = separarCarrera(h, carrera)
+    file = open("reporte "+carrera+".html", "w")
+    if lista != []:
+        file.write(carrera)
+        for i in lista:
+            file.write("\n")
+            file.write("\n")
+            file.write("Carnet: " + i[0])
+            file.write("\n")
+            file.write("Nombre: " + i[1])
+            file.write("\n")
+            file.write("Numero de telefono: " + i[2])
+            file.write("\n")
+            file.write("Sede: " + i[3])
+            file.write("\n")
+            file.write("Carrera: " + i[4])
+            file.write("\n")
+            file.write("Mentor: " + i[5])
+            file.write("\n")
+            file.write("Correo: " + i[6])
+    else:
+        print("Ingrese una carrera existente")
+crearHTMLCarrera(h, 'Administración de Empresas ')
+
