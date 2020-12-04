@@ -26,7 +26,11 @@ labelNumero.place(x=250, y=100)
 #FUNCIONES DE CADA BOTON
 
 def boton1():
-    panel1 = Frame(ventana, bg='RoyalBlue3', width = 900, height = 800)
+    ventana1 = Tk() # crea una ventana
+    ventana1.title("ventana 1")#titulo de la ventana
+    ventana1.geometry("900x800")#tamaño de la ventana
+    ventana1.resizable(True, True)#opcionde modifacar el tamaño
+    panel1 = Frame(ventana1, bg='RoyalBlue3', width = 900, height = 800)
     panel1.place(x=0, y=0)
     labelTitulo1 = Label(panel1, text = "ESTUDIANTES POR SEDE", bg ='snow', fg = 'gray10',font = ('',20))
     labelTitulo1.place(x=300,y=25)
