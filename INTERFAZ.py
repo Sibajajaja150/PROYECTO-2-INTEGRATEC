@@ -34,8 +34,10 @@ def validNum(num):
         int(num)
     except:
         tkinter.messagebox.showerror('debe insertar solo enteros!')
-#def habilitarBotones()
+def habilitarBotones(matrizSede):
+    ''
 #FUNCIONES DE CADA BOTON
+
 def boton1():
     '''
     funcion: crea una nueva ventana para el reto 1
@@ -113,9 +115,9 @@ def boton6():
     panel6.place(x=0, y=0)
     labelTitulo5 = Label(panel6, text = "generar reportes", bg ='snow', fg = 'gray10',font = ('',20))
     labelTitulo5.place(x=325,y=25)
-    botonReporteSede = Button(panel6,text = '1)reporte por sede',width=30, height = 2, command = 'FALTA FUNCION').place(x=350,y=150)
-    botonReporteCarrera = Button(panel6,text = '1)reporte por carrera',width=30, height = 2, command = 'FALTA FUNCION').place(x=350,y=200)
-    botonReporteMentor = Button(panel6,text = '1)reporte por mentor',width=30, height = 2, command = 'FALTA FUNCION').place(x=350,y=250)
+    botonReporteSede = Button(panel6,text = '1)reporte por sede',width=30, height = 2, command = crearHTMLSede).place(x=350,y=150)
+    botonReporteCarrera = Button(panel6,text = '1)reporte por carrera',width=30, height = 2, command = crearHTMLCarrera).place(x=350,y=200)
+    botonReporteMentor = Button(panel6,text = '1)reporte por mentor',width=30, height = 2, command = 'falta').place(x=350,y=250)
     return ''
 def boton7():
     '''
