@@ -24,10 +24,13 @@ labelTitulo.place(x=300,y=50)
 labelNumero = Label(panel, text = "ELIGE UNA OPCION PARA LLEVAR A CABO! ", bg = 'snow', fg = 'gray10',font = ('',15))#otro label con texto de opciones
 labelNumero.place(x=250, y=100)
 #FUNCIONES DE CADA BOTON
-def volverMenu():
-    ventana.mainloop()
+
 def boton1():
-    panel1 = Frame(panel, bg='RoyalBlue3', width = 900, height = 800)
+    ventana2 = Tk() # crea una ventana
+    ventana2.title('estudiantes por sede')#titulo de la ventana
+    ventana2.geometry("800x800")#tamaño de la ventana
+    ventana2.resizable(True, True)#opcionde modifacar el tamaño
+    panel1 = Frame(ventana2, bg='RoyalBlue3', width = 900, height = 800)
     panel1.place(x=0, y=0)
     labelTitulo1 = Label(panel1, text = "ESTUDIANTES POR SEDE", bg ='snow', fg = 'gray10',font = ('',20))
     labelTitulo1.place(x=300,y=25)
@@ -51,37 +54,23 @@ def boton1():
     inputCAA.place(x = 150, y = 250)
     inputCAL = Text(panel1, width = 30, height = 2)
     inputCAL.place(x = 150, y = 300)
-    botonSalir = Button(panel1,text = 'VOLVER AL MENU',width=30, height = 2, command = volverMenu)
+    botonSalir = Button(panel1,text = 'VOLVER AL MENU',width=30, height = 2, command = 'volverMenu')
     botonSalir.place(x=150,y=350)
     botonGuardar = Button(panel1,text = 'GUARDAR',width=30, height = 2, command =' estudiantesPorSede(eval(inputCTCC),eval(inputCTSC),eval(inputCTSJ),eval(inputCAA),eval(inputCAL))')
     botonGuardar.place(x=150,y=400)
+    ventana2.mainloop()
 def boton2():
-    panel2 = Frame(panel,bg='RoyalBlue3', width = 900, height = 800)
-    panel2.place(x=0, y=0)
-    labelTitulo2 = Label(panel2, text = "ESTUDIANTES  DE CARRERA POR SEDE", bg ='snow', fg = 'gray10',font = ('',20))
-    labelTitulo2.place(x=80,y=25)
-    boton = Button(panel2,text = 'GENERAR ESTUDIANTES DE CARRERA POR SEDE',width=50, height = 2, command = 'FALTA ESTA FUNCION')
-    boton.place(x=80,y=100)
-    botonSalir = Button(panel2,text = 'VOLVER AL MENU',width=30, height = 2, command = volverMenu)
-    botonSalir.place(x=80,y=150)
+    '''
+    FALTA LA FUNCION: ESTUDIANTES DE CARRERA POR SEDE
+    '''
 def boton3():
-    panel3 = Frame(panel,bg='RoyalBlue3', width = 900, height = 800)
-    panel3.place(x=0, y=0)
-    labelTitulo3 = Label(panel3, text = "CREAR MENTORES", bg ='snow', fg = 'gray10',font = ('',20))
-    labelTitulo3.place(x=80,y=25)
-    boton = Button(panel3,text = 'GENERAR LOS MENTORES',width=40, height = 2, command = 'FALTA ESTA FUNCION')
-    boton.place(x=80,y=100)
-    botonSalir = Button(panel3,text = 'VOLVER AL MENU',width=30, height = 2, command = volverMenu)
-    botonSalir.place(x=80,y=150)
+    '''
+    FALTA LA FUNCION: CREAR MENTORES
+    '''
 def boton4():
-    panel4 = Frame(panel,bg='RoyalBlue3', width = 900, height = 800)
-    panel4.place(x=0, y=0)
-    labelTitulo4 = Label(panel4, text = "ASIGNAR MENTORES", bg ='snow', fg = 'gray10',font = ('',20))
-    labelTitulo4.place(x=80,y=25)
-    boton = Button(panel4,text = 'ASIGNAR',width=30, height = 2, command = 'FALTA ESTA FUNCION')
-    boton.place(x=80,y=100)
-    botonSalir = Button(panel4,text = 'VOLVER AL MENU',width=30, height = 2, command = volverMenu)
-    botonSalir.place(x=80,y=150)
+    '''
+    FALTA LA FUNCION: FALTA LA FUNCION:
+    '''
 def boton5():
     panel5 = Frame(panel,bg='RoyalBlue3', width = 900, height = 800)
     panel5.place(x=0, y=0)
@@ -91,8 +80,35 @@ def boton5():
     carne.place(x=80,y=300)
     inputCarne = Text(panel5, width = 30, height = 2)
     inputCarne.place(x = 80, y = 100)
-    botonSalir = Button(panel5,text = 'VOLVER AL MENU',width=30, height = 2, command = volverMenu)
+    botonSalir = Button(panel5,text = 'VOLVER AL MENU',width=30, height = 2, command = 'volverMenu')
     botonSalir.place(x=80,y=150)
+def boton6():
+    panel6 = Frame(panel,bg='RoyalBlue3', width = 900, height = 800)
+    panel6.place(x=0, y=0)
+    labelTitulo5 = Label(panel6, text = "GENERAR REPORTES", bg ='snow', fg = 'gray10',font = ('',20))
+    labelTitulo5.place(x=80,y=25)
+    botonReporteSede = Button(panel6,text = '1)REPORTE POR SEDE',width=30, height = 2, command = 'FALTA FUNCION').place(x=350,y=150)
+    botonReporteCarrera = Button(panel6,text = '1)REPORTE POR CARRERA',width=30, height = 2, command = 'FALTA FUNCION').place(x=350,y=200)
+    botonReporteMentor = Button(panel6,text = '1)REPORTE POR MENTOR',width=30, height = 2, command = 'FALTA FUNCION').place(x=350,y=250)
+    botonSalir = Button(panel6,text = 'VOLVER AL MENU',width=30, height = 2, command = 'volverMenu')
+    botonSalir.place(x=80,y=300)
+def boton7():
+    '''
+    FALTA FUNCION CREAR DATOS EXCEL
+    '''
+def boton8():
+    panel8 = Frame(panel,bg='RoyalBlue3', width = 900, height = 800)
+    panel8.place(x=0, y=0)
+    labelTitulo8 = Label(panel8, text = "ENVIAR CORREO", bg ='snow', fg = 'gray10',font = ('',20))
+    labelTitulo8.place(x=80,y=25)
+    inputCorreo = Text(panel8, width = 30, height = 2)
+    inputCorreo.place(x = 150, y = 100)
+    tituloInput = Label(panel8, text = 'INSERTE EL CORREO RECEPTOR', bg = 'snow', fg = 'gray10', font = ('',15))
+    tituloInput.place(x=80,y=100)
+    botonSalir = Button(panel8,text = 'VOLVER AL MENU',width=30, height = 2, command = 'volverMenu')
+    botonSalir.place(x=80,y=300)
+def boton9():
+    print('gracias por usar el sistema integratec!')
 #BOTONES DEL MENU PRINCIPAL
 boton1 = Button(panel,text = '1)ESTUDIANTE POR SEDE',width=30, height = 2, command = boton1).place(x=350,y=150)
 boton2 = Button(panel,text = '2)ESTUDIANTES DE CARRERA POR SEDE',width=30, height = 2, command = boton2).place(x=350,y=200)
