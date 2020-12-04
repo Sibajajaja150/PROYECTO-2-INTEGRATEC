@@ -126,7 +126,7 @@ def boton8():
     botonSalir = Button(panel8,text = 'VOLVER AL MENU',width=30, height = 2, command = 'volverMenu')
     botonSalir.place(x=80,y=300)
 def boton9():
-    print('gracias por usar el sistema integratec!')
+    ventana.destroy()
 #BOTONES DEL MENU PRINCIPAL
 boton1 = Button(panel,text = '1)ESTUDIANTE POR SEDE',width=30, height = 2, command = boton1).place(x=350,y=150)
 boton2 = Button(panel,text = '2)ESTUDIANTES DE CARRERA POR SEDE',width=30, height = 2, command = boton2).place(x=350,y=200)
