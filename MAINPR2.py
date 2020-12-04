@@ -271,3 +271,7 @@ def crearHTMLSede(lista, sede):
             file.write("\n")
             file.write("Correo: " + i[6])
     return ""
+<<<<<<< Updated upstream
+=======
+print(separarLista(h)[0][1])
+>>>>>>> Stashed changes
