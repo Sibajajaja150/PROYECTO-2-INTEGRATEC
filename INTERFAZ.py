@@ -25,10 +25,16 @@ labelNumero = Label(panel, text = "ELIGE UNA OPCION PARA LLEVAR A CABO! ", bg = 
 labelNumero.place(x=250, y=100)
 #FUNCIONES VARIAS
 def validNum(num):
+    '''
+    funciones: valida un numero de entrada
+    e:numero
+    s:messagebox
+    '''
     try:
         int(num)
     except:
-        tkinter.messagebox.showerror(title='validacion', message='debe ingresar enteros')
+        messagebox.showerror('debe insertar solo enteros!')
+#def habilitarBotones()
 #FUNCIONES DE CADA BOTON
 def boton1():
     '''
