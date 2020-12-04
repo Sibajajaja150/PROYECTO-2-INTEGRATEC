@@ -310,5 +310,5 @@ def crearHTMLCarrera(lista, carrera):
             file.write("Correo: " + i[6])
     else:
         print("Ingrese una carrera existente")
-crearHTMLCarrera(h, 'Administración de Empresas ')
-
+#crearHTMLCarrera(h, 'Administración de Empresas ')
+print(h)
