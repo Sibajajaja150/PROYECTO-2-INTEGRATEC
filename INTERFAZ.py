@@ -26,11 +26,8 @@ labelNumero.place(x=250, y=100)
 #FUNCIONES DE CADA BOTON
 
 def boton1():
-    ventana2 = Tk() # crea una ventana
-    ventana2.title('estudiantes por sede')#titulo de la ventana
-    ventana2.geometry("800x800")#tamaño de la ventana
-    ventana2.resizable(True, True)#opcionde modifacar el tamaño
-    panel1 = Frame(ventana2, bg='RoyalBlue3', width = 900, height = 800)
+    
+    panel1 = Frame(ventana, bg='RoyalBlue3', width = 900, height = 800)
     panel1.place(x=0, y=0)
     labelTitulo1 = Label(panel1, text = "ESTUDIANTES POR SEDE", bg ='snow', fg = 'gray10',font = ('',20))
     labelTitulo1.place(x=300,y=25)
@@ -58,7 +55,7 @@ def boton1():
     botonSalir.place(x=150,y=350)
     botonGuardar = Button(panel1,text = 'GUARDAR',width=30, height = 2, command =' estudiantesPorSede(eval(inputCTCC),eval(inputCTSC),eval(inputCTSJ),eval(inputCAA),eval(inputCAL))')
     botonGuardar.place(x=150,y=400)
-    ventana2.mainloop()
+    
 def boton2():
     '''
     FALTA LA FUNCION: ESTUDIANTES DE CARRERA POR SEDE
