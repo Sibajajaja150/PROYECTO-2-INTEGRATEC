@@ -48,7 +48,7 @@ def setLista(lista,archivo):
     e: lista y archivo
     s: lista 
     '''
-    guardar(archivo,lista)
+    grabar(archivo,lista)
     return []
 def existeArch(lista,archivo):
     '''
