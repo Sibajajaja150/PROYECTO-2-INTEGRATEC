@@ -80,16 +80,21 @@ def boton1():
     return ''
 def boton2():
     '''
-    FALTA LA FUNCION: ESTUDIANTES DE CARRERA POR SEDE
+    Funcion: crea una lista con los estudiantes
+    e:
+    s:
     '''
+    listaEstudiantes(listaCE)
 def boton3():
     '''
-    FALTA LA FUNCION: CREAR MENTORES
+    
     '''
+    listaMentores(listaCE)
 def boton4():
     '''
-    FALTA LA FUNCION: FALTA LA FUNCION:
+    
     '''
+    asignarMentores(listaEstudiantes(listaCE,listaMentores(listaCE)))
 def boton5():
     '''
     funcion: crear una nueva ventana para el efectuar el reto 5
@@ -115,6 +120,8 @@ def boton5():
     correo = Entry(panel5)
     correo.place(x=350,y=250)
     diccionario = makeDicc(listaEstudiantes(listaCE))
+    print(listaEstudiantes(listaCE))
+    print(diccionario)
     botonBuscar = Button(panel5,text = 'buscar',width=30, height = 2, command = lambda: actualizarEstudiante(inputCarne.get(),nombre.get(),telefono.get(),correo.get(),diccionario))
     botonBuscar.place(x=500,y=100)
     return ''
