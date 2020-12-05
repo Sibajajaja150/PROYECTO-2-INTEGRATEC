@@ -393,4 +393,4 @@ def crearExcel(lista1, lista2):
 a = listaEstudiantes(listaCE)
 asignarMentores(a, listaMentores(listaCE))
 crearExcel(getCorreo(a), getCorreo(listaMentores(listaCE)))
-enviarCorreos("vega.diego02@gmail.com")
+enviarCorreos("sibajajaja@gmail.com")
