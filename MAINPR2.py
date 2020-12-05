@@ -109,7 +109,7 @@ def validarEstudiantesPorSede(a,b,c,d,e):
     global matrizSede
     if isNum(a) and isNum(b) and isNum(c) and isNum(d) and isNum(e):
         matrizSede = estudiantesPorSede(int(a), int(b), int(c), int(d), int(e))
-        return matrizSede
+        return ''
 def crearListaCarreras(lista):
     listaN = [] 
     k = lista[1].keys()
