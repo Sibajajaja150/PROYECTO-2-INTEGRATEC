@@ -192,6 +192,7 @@ def getCorreo(lista):
     return lista
 #dicc=makeDicc(listaEstudiantes(listaCE))
 def actualizarEstudiante(carnet, nombre, telefono, correo, dicc):
+    print(dicc[carnet])
     dicc[carnet][0] = nombre
     dicc[carnet][1] = telefono
     dicc[carnet][5] = correo
@@ -376,4 +377,3 @@ def enviarCorreos(correo):
     smtp.login("diegoesteban42069@gmail.com", "420696969")
     smtp.sendmail("diegoesteban42069@gmail.com", usuario, mensaje.as_string())
     smtp.quit()
-HTMLSede(separarLista(listaEstudiantes(listaCE)))
