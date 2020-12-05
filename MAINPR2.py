@@ -371,12 +371,12 @@ def enviarCorreos(correo):
     mensaje["Subject"] = "Prueba"
     adjunto = MIMEBase("application", "octect-stream")
     adjunto.set_payload(open(archivo,"rb").read())
-    adjunto.add_header("content-Disposition", "attachment; filename = 'Mensaje.txt'")
+    adjunto.add_header("content-Disposition", "attachment; filename = 'BDIntegraTEC.csv'")
     mensaje.attach(adjunto)
     smtp = SMTP("smtp.gmail.com")
     smtp.starttls()
     smtp.login("diegoesteban42069@gmail.com", "420696969")
-    smtp.sendmail("diegoesteban42069@gmail.com", usuario, mensaje.as_string())
+    smtp.sendmail("diegoesteban42069@gmail.com", usuario, mensaje.as_bytes())
     smtp.quit()
 def crearExcel(lista1, lista2):
     global archivo
