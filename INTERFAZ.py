@@ -175,8 +175,8 @@ def boton8():
     panel8.place(x=0, y=0)
     labelTitulo8 = Label(panel8, text = "enviar correo", bg ='snow', fg = 'gray10',font = ('',20))
     labelTitulo8.place(x=80,y=25)
-    inputCorreo = Text(panel8, width = 30, height = 2)
-    inputCorreo.place(x = 150, y = 100)
+    inputCorreo = Entry(panel8)
+    inputCorreo.place(x = 325, y = 100)
     tituloInput = Label(panel8, text = 'inserte el correo receptor', bg = 'snow', fg = 'gray10', font = ('',15))
     tituloInput.place(x=80,y=100)
 def boton9():
