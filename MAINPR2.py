@@ -109,7 +109,7 @@ def validarEstudiantesPorSede(a,b,c,d,e):
     global matrizSede
     if isNum(a) and isNum(b) and isNum(c) and isNum(d) and isNum(e):
         matrizSede = estudiantesPorSede(int(a), int(b), int(c), int(d), int(e))
-        return estudiantesPorSede(int(a), int(b), int(c), int(d), int(e))
+        return matrizSede
 def crearListaCarreras(lista):
     listaN = [] 
     k = lista[1].keys()
@@ -197,8 +197,8 @@ def actualizarEstudiante(carnet, nombre, telefono, correo, dicc):
     dicc[carnet][5] = correo
     print(dicc[carnet])
     return ""
-validarEstudiantesPorSede('2', '4', '11', '18', '25')
-listaCE = [["CTCC", crearLista(crearListaCarreras(matrizSede[0]), crearListaEstudiantes(matrizSede[0]))], ["CTLSC", crearLista(crearListaCarreras(matrizSede[1]), crearListaEstudiantes(matrizSede[1]))], ["CTLSJ", crearLista(crearListaCarreras(matrizSede[2]), crearListaEstudiantes(matrizSede[2]))], ["CAA", crearLista(crearListaCarreras(matrizSede[3]), crearListaEstudiantes(matrizSede[3]))], ["CAL", crearLista(crearListaCarreras(matrizSede[4]), crearListaEstudiantes(matrizSede[4]))]]
+#validarEstudiantesPorSede('2', '4', '11', '18', '25')
+#listaCE = [["CTCC", crearLista(crearListaCarreras(matrizSede[0]), crearListaEstudiantes(matrizSede[0]))], ["CTLSC", crearLista(crearListaCarreras(matrizSede[1]), crearListaEstudiantes(matrizSede[1]))], ["CTLSJ", crearLista(crearListaCarreras(matrizSede[2]), crearListaEstudiantes(matrizSede[2]))], ["CAA", crearLista(crearListaCarreras(matrizSede[3]), crearListaEstudiantes(matrizSede[3]))], ["CAL", crearLista(crearListaCarreras(matrizSede[4]), crearListaEstudiantes(matrizSede[4]))]]
 #print(listaCE)
 #diccEstudiantes = {listaCE[0][0]:listaCE[0][1], listaCE[1][0]:listaCE[1][1], listaCE[2][0]:listaCE[2][1], listaCE[3][0]:listaCE[3][1], listaCE[4][0]:listaCE[4][1]}
 #print(makeDicc(h))
