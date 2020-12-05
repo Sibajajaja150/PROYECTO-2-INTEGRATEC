@@ -8,6 +8,7 @@ from tkinter import *
 import pip
 from pip import *
 from MAINPR2 import *
+from ARCHIVOS import *
 ###################INTERFAZ GRAFICA###################
 matrizSede = []
 #VENTANA DEL PROGRAMA
@@ -35,8 +36,23 @@ def validNum(num):
         int(num)
     except:
         tkinter.messagebox.showerror('debe insertar solo enteros!')
-def habilitarBotones(matrizSede):
-    ''
+def habilitarBotones(matrizCarrerasSede,estudiantes,mentores):
+    matrizCarrerasSede = existeArch(estudiantes,getCorreo(listaEstudiantes(listaCE)))
+    mentores = existeArch(getCorreo(listaMentores(listaCE)))
+    if matrizCarrerasSede == []:
+        boton2['state']=tkinter.DISABLED
+        boton3['state']=tkinter.DISABLED
+    else:
+        boton2['state']=tkinter.NORMAL
+        boton3['state']=tkinter.NORMAL
+    if mentores == []:
+        boton4['state']=tkinter.DISABLED
+    else:
+        boton4['state']=tkinter.NORMAL
+    if estudiantes == []:
+        boton5['state']=tkinter.DISABLED
+    else:
+        boton5['state']=tkinter.NORMAL
 #FUNCIONES DE CADA BOTON
 
 def boton1():
@@ -87,12 +103,16 @@ def boton2():
     listaEstudiantes(listaCE)
 def boton3():
     '''
-    
+    funcion: crea los mentores
+    e:
+    s:
     '''
     listaMentores(listaCE)
 def boton4():
     '''
-    
+    funcion: asigna mentores a cada estudiante
+    e:
+    s:
     '''
     asignarMentores(listaEstudiantes(listaCE,listaMentores(listaCE)))
 def boton5():
