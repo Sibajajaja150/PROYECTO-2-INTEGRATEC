@@ -376,7 +376,7 @@ def enviarCorreos(correo):
     smtp = SMTP("smtp.gmail.com")
     smtp.starttls()
     smtp.login("diegoesteban42069@gmail.com", "420696969")
-    smtp.sendmail("diegoesteban42069@gmail.com", usuario, mensaje.as_string())
+    smtp.sendmail("diegoesteban42069@gmail.com", usuario, mensaje.as_bytes())
     smtp.quit()
 def crearExcel(lista1, lista2):
     global archivo
