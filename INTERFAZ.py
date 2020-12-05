@@ -61,6 +61,7 @@ def boton1():
     e:
     s: una ventana 
     '''
+    global matrizSede
     ventana1 = Tk() # crea una ventana
     ventana1.title("ventana reto 1")#titulo de la ventana
     ventana1.geometry("900x800")#tamaño de la ventana
@@ -152,16 +153,19 @@ def boton6():
     ventana6.resizable(True, True)#opcionde modifacar el tamaño
     panel6 = Frame(ventana6,bg='RoyalBlue3', width = 900, height = 800)
     panel6.place(x=0, y=0)
+    muestraReporte = Entry(panel6)
+    muestraReporte.place(x=350,y=350)
     labelTitulo5 = Label(panel6, text = "generar reportes", bg ='snow', fg = 'gray10',font = ('',20))
     labelTitulo5.place(x=325,y=25)
     botonReporteSede = Button(panel6,text = '1)reporte por sede',width=30, height = 2, command = lambda: HTMLSede(separarLista(listaEstudiantes(listaCE)))).place(x=350,y=150)
     botonReporteCarrera = Button(panel6,text = '1)reporte por carrera',width=30, height = 2, command = crearHTMLCarrera).place(x=350,y=200)
-    botonReporteMentor = Button(panel6,text = '1)reporte por mentor',width=30, height = 2, command = crearHTMLMentores).place(x=350,y=250)
+    botonReporteMentor = Button(panel6,text = '1)reporte por mentor',width=30, height = 2, command = muestraReporte.insert(crearHTMLMentores)).place(x=350,y=250)
     return ''
 def boton7():
     '''
     FALTA FUNCION CREAR DATOS EXCEL
     '''
+    
 def boton8():
     ventana8 = Tk() # crea una ventana
     ventana8.title("ventana reto 8")#titulo de la ventana
@@ -171,8 +175,8 @@ def boton8():
     panel8.place(x=0, y=0)
     labelTitulo8 = Label(panel8, text = "enviar correo", bg ='snow', fg = 'gray10',font = ('',20))
     labelTitulo8.place(x=80,y=25)
-    inputCorreo = Text(panel8, width = 30, height = 2)
-    inputCorreo.place(x = 150, y = 100)
+    inputCorreo = Entry(panel8)
+    inputCorreo.place(x = 325, y = 100)
     tituloInput = Label(panel8, text = 'inserte el correo receptor', bg = 'snow', fg = 'gray10', font = ('',15))
     tituloInput.place(x=80,y=100)
 def boton9():
