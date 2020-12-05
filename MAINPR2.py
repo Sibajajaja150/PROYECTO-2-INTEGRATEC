@@ -10,7 +10,7 @@ from smtplib import SMTP
 import requests
 import names
 import random
-from datetime import time
+import datetime
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 archivo = ""
@@ -377,3 +377,11 @@ def enviarCorreos(correo):
     smtp.login("diegoesteban42069@gmail.com", "420696969")
     smtp.sendmail("diegoesteban42069@gmail.com", usuario, mensaje.as_string())
     smtp.quit()
+def crearExcel(lista1, lista2):
+    global archivo
+    hora = datetime.datetime.today()
+    hora = str(hora)
+    archivo = "BDIntegraTEC" + hora[8:10] + "-" + hora[5:7] + "-" + hora[0:4] + "_" + hora[11:13] + "-" + hora[14:16] + ".csv"
+    file = open (archivo, "w")
+    #for i in lista1:
+crearExcel(getCorreo(listaEstudiantes(listaCE)), [])
