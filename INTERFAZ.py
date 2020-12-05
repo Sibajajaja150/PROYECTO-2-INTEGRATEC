@@ -9,6 +9,7 @@ import pip
 from pip import *
 from MAINPR2 import *
 ###################INTERFAZ GRAFICA###################
+matrizSede = []
 #VENTANA DEL PROGRAMA
 ventana = Tk() # crea una ventana
 ventana.title("ventana integratec")#titulo de la ventana
@@ -79,16 +80,21 @@ def boton1():
     return ''
 def boton2():
     '''
-    FALTA LA FUNCION: ESTUDIANTES DE CARRERA POR SEDE
+    Funcion: crea una lista con los estudiantes
+    e:
+    s:
     '''
+    listaEstudiantes(listaCE)
 def boton3():
     '''
-    FALTA LA FUNCION: CREAR MENTORES
+    
     '''
+    listaMentores(listaCE)
 def boton4():
     '''
-    FALTA LA FUNCION: FALTA LA FUNCION:
+    
     '''
+    asignarMentores(listaEstudiantes(listaCE,listaMentores(listaCE)))
 def boton5():
     '''
     funcion: crear una nueva ventana para el efectuar el reto 5
@@ -105,8 +111,19 @@ def boton5():
     labelTitulo5.place(x=80,y=25)
     carne = Label(panel5, text = 'CARNE DEL ESTUDIANTE:', bg = 'snow', fg = 'gray10', font = ('',15))
     carne.place(x=80,y=100)
-    inputCarne = Text(panel5, width = 30, height = 2)
+    inputCarne = Entry(panel5)
     inputCarne.place(x = 350, y = 100)
+    nombre = Entry(panel5)
+    nombre.place(x=350,y=150)
+    telefono = Entry(panel5)
+    telefono.place(x=350,y=200)
+    correo = Entry(panel5)
+    correo.place(x=350,y=250)
+    diccionario = makeDicc(listaEstudiantes(listaCE))
+    print(listaEstudiantes(listaCE))
+    print(diccionario)
+    botonBuscar = Button(panel5,text = 'buscar',width=30, height = 2, command = lambda: actualizarEstudiante(inputCarne.get(),nombre.get(),telefono.get(),correo.get(),diccionario))
+    botonBuscar.place(x=500,y=100)
     return ''
 def boton6():
     ventana6 = Tk() # crea una ventana
@@ -117,9 +134,9 @@ def boton6():
     panel6.place(x=0, y=0)
     labelTitulo5 = Label(panel6, text = "generar reportes", bg ='snow', fg = 'gray10',font = ('',20))
     labelTitulo5.place(x=325,y=25)
-    botonReporteSede = Button(panel6,text = '1)reporte por sede',width=30, height = 2, command = crearHTMLSede).place(x=350,y=150)
+    botonReporteSede = Button(panel6,text = '1)reporte por sede',width=30, height = 2, command = lambda: HTMLSede(separarLista(listaEstudiantes(listaCE)))).place(x=350,y=150)
     botonReporteCarrera = Button(panel6,text = '1)reporte por carrera',width=30, height = 2, command = crearHTMLCarrera).place(x=350,y=200)
-    botonReporteMentor = Button(panel6,text = '1)reporte por mentor',width=30, height = 2, command = 'falta').place(x=350,y=250)
+    botonReporteMentor = Button(panel6,text = '1)reporte por mentor',width=30, height = 2, command = crearHTMLMentores).place(x=350,y=250)
     return ''
 def boton7():
     '''
@@ -152,3 +169,7 @@ boton8 = Button(panel,text = '8)Enviar correo',width=30, height = 2, command = b
 boton9 = Button(panel,text = '9)Salir',width=30, height = 2,command = boton9).place(x=350,y=550)
 
 ventana.mainloop() #LLAMADA PRINCIPAL
+
+#print(validarEstudiantesPorSede('5','6','8','12','10'))
+#listaCE = [["CTCC", crearLista(crearListaCarreras(matrizSede[0]), crearListaEstudiantes(matrizSede[0]))], ["CTLSC", crearLista(crearListaCarreras(matrizSede[1]), crearListaEstudiantes(matrizSede[1]))], ["CTLSJ", crearLista(crearListaCarreras(matrizSede[2]), crearListaEstudiantes(matrizSede[2]))], ["CAA", crearLista(crearListaCarreras(matrizSede[3]), crearListaEstudiantes(matrizSede[3]))], ["CAL", crearLista(crearListaCarreras(matrizSede[4]), crearListaEstudiantes(matrizSede[4]))]]
+#ventana.mainloop()
