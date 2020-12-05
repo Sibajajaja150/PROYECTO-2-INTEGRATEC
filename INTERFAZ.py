@@ -8,7 +8,6 @@ from tkinter import *
 import pip
 from pip import *
 from MAINPR2 import *
-import tkinter.ttk
 ###################INTERFAZ GRAFICA###################
 #VENTANA DEL PROGRAMA
 ventana = Tk() # crea una ventana
@@ -73,10 +72,10 @@ def boton1():
     inputCAA.place(x = 150, y = 250)
     inputCAL = Entry(panel1)
     inputCAL.place(x = 150, y = 300)
-    botonGuardar = Button(panel1,text = 'guardar',width=30, height = 2, command = validarEstudiantesPorSede(inputCTCC,inputCTSC,inputCTSJ,inputCAA,inputCAL))
+    botonGuardar = Button(panel1,text = 'guardar',width=30, height = 2, command = lambda: validarEstudiantesPorSede(inputCTCC.get(),inputCTSC.get(),inputCTSJ.get(),inputCAA.get(),inputCAL.get()))
     botonGuardar.place(x=150,y=400)
-    botonGuarda = Button(panel1,text = 'guarda',width=30, height = 2, command = print(matrizSede))
-    botonGuarda.place(x=300,y=400)
+    botonImprimir = Button(panel1,text = 'imprimir matriz',width=30, height = 2, command = lambda: print(matrizSede))
+    botonImprimir.place(x=150,y=450)
     return ''
 def boton2():
     '''
