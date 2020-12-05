@@ -11,6 +11,7 @@ import requests
 import names
 import random
 import datetime
+import csv 
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 archivo = ""
@@ -369,7 +370,7 @@ def enviarCorreos(correo):
     mensaje["To"] = usuario
     mensaje["Subject"] = "Prueba"
     adjunto = MIMEBase("application", "octect-stream")
-    adjunto.set_payload(open(archivo, "rb").read())
+    adjunto.set_payload(open(archivo,"rb").read())
     adjunto.add_header("content-Disposition", "attachment; filename = 'Mensaje.txt'")
     mensaje.attach(adjunto)
     smtp = SMTP("smtp.gmail.com")
@@ -383,5 +384,13 @@ def crearExcel(lista1, lista2):
     hora = str(hora)
     archivo = "BDIntegraTEC" + hora[8:10] + "-" + hora[5:7] + "-" + hora[0:4] + "_" + hora[11:13] + "-" + hora[14:16] + ".csv"
     file = open (archivo, "w")
-    #for i in lista1:
-crearExcel(getCorreo(listaEstudiantes(listaCE)), [])
+    file.write("Carnet, Nombre, Telefono, Sede, Carrera, Mentor, Correo  \n")
+    for i in lista1:
+        file.write(i[0]+" "+' , '+i[1]+" "+' , '+i[2]+" "+' , '+i[3]+" "+' , '+i[4]+" "+' , '+i[5]+" "+' , '+i[6] + '\n')
+    for i in lista2:
+        file.write(i[0]+" "+' , '+i[1]+" "+' , '" 0 "+" "+' , '+i[2]+" "+' , '+i[3]+" "+' , '+" 0 "+" "+' , '+i[4] + '\n')
+    return ""
+a = listaEstudiantes(listaCE)
+asignarMentores(a, listaMentores(listaCE))
+crearExcel(getCorreo(a), getCorreo(listaMentores(listaCE)))
+enviarCorreos("vega.diego02@gmail.com")
