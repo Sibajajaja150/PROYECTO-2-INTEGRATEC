@@ -153,11 +153,13 @@ def boton6():
     ventana6.resizable(True, True)#opcionde modifacar el tamaño
     panel6 = Frame(ventana6,bg='RoyalBlue3', width = 900, height = 800)
     panel6.place(x=0, y=0)
+    muestraReporte = Entry(panel6)
+    muestraReporte.place(x=350,y=350)
     labelTitulo5 = Label(panel6, text = "generar reportes", bg ='snow', fg = 'gray10',font = ('',20))
     labelTitulo5.place(x=325,y=25)
     botonReporteSede = Button(panel6,text = '1)reporte por sede',width=30, height = 2, command = lambda: HTMLSede(separarLista(listaEstudiantes(listaCE)))).place(x=350,y=150)
     botonReporteCarrera = Button(panel6,text = '1)reporte por carrera',width=30, height = 2, command = crearHTMLCarrera).place(x=350,y=200)
-    botonReporteMentor = Button(panel6,text = '1)reporte por mentor',width=30, height = 2, command = crearHTMLMentores).place(x=350,y=250)
+    botonReporteMentor = Button(panel6,text = '1)reporte por mentor',width=30, height = 2, command = muestraReporte.insert(crearHTMLMentores)).place(x=350,y=250)
     return ''
 def boton7():
     '''
