@@ -61,6 +61,7 @@ def boton1():
     e:
     s: una ventana 
     '''
+    global matrizSede
     ventana1 = Tk() # crea una ventana
     ventana1.title("ventana reto 1")#titulo de la ventana
     ventana1.geometry("900x800")#tamaño de la ventana
@@ -162,6 +163,7 @@ def boton7():
     '''
     FALTA FUNCION CREAR DATOS EXCEL
     '''
+    
 def boton8():
     ventana8 = Tk() # crea una ventana
     ventana8.title("ventana reto 8")#titulo de la ventana
