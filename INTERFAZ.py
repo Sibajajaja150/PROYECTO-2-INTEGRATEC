@@ -14,6 +14,7 @@ matrizSede = []
 a = []
 b = []
 c = []
+listaGlobal = []
 #VENTANA DEL PROGRAMA
 ventana = Tk() # crea una ventana
 ventana.title("ventana integratec")#titulo de la ventana
@@ -69,7 +70,7 @@ def boton1():
     s: una ventana 
     '''
     global matrizSede
-    global listaCE
+    global listaGlobal
     ventana1 = Tk() # crea una ventana
     ventana1.title("ventana reto 1")#titulo de la ventana
     ventana1.geometry("900x800")#tamaño de la ventana
