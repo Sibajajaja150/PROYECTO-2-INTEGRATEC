@@ -10,6 +10,7 @@ from pip import *
 from MAINPR2 import *
 from ARCHIVOS import *
 ###################INTERFAZ GRAFICA###################
+#variables globales
 a = []
 b = []
 c = []
@@ -19,7 +20,7 @@ ventana = Tk() # crea una ventana
 ventana.title("ventana integratec")#titulo de la ventana
 ventana.geometry("900x800")#tamaño de la ventana
 ventana.resizable(True, True)#opcionde modifacar el tamaño
-#PANEL 
+#PANEL PRINCIPAL
 panel = Frame(ventana, bg='RoyalBlue3', width = 900, height = 800)#crea un panel dentro de la ventana donde se va a trabajar
 panel.place(x=0, y=0)#tamaño del panel
 #TEXTOS(LABELS)
@@ -30,6 +31,11 @@ labelNumero = Label(panel, text = "elige una opcion para llevar a cabo! ", bg = 
 labelNumero.place(x=250, y=100)
 #FUNCIONES VARIAS
 def listaCEAux(dicc):
+    '''
+    funcion: crea una lista auxiliar
+    e: diccionario
+    s:
+    '''
     global listaGlobal
     print(dicc)
     listaGlobal = listaCE(dicc)
@@ -43,8 +49,14 @@ def validNum(num):
     try:
         int(num)
     except:
-        tkinter.messagebox.showerror('debe insertar solo enteros!')
+        tkinter.messagebox.showerror('mensaje','debe insertar solo enteros!')
+    return''
 def habilitarBotones(matrizCarrerasSede,estudiantes,mentores):
+    '''
+    funcion: hablilitar y deshabilitar botones
+    e: 3 dicc
+    s:
+    '''
     matrizCarrerasSede = existeArch(estudiantes,getCorreo(listaEstudiantes(listaCE)))
     mentores = existeArch(getCorreo(listaMentores(listaCE)))
     if matrizCarrerasSede == []:
@@ -61,12 +73,15 @@ def habilitarBotones(matrizCarrerasSede,estudiantes,mentores):
         boton5['state']=tkinter.DISABLED
     else:
         boton5['state']=tkinter.NORMAL
+    return ''
 #FUNCIONES DE CADA BOTON
 def retornarMatrisSede(valor):
+    '''
+    funcion: retornar una matriz 
+    e: un valor
+    s: una matriz 
+    '''
     return valor
-def multitask(var1,var2,var3,var4,var5,lista):
-    validarEstudiantesPorSede(var1,var2,var3,var4,var5)
-    lista
 def boton1():
     '''
     funcion: crea una nueva ventana para el reto 1
@@ -179,6 +194,12 @@ def boton5():
     botonBuscar.place(x=500,y=100)
     return ''
 def reporteCarrera(var1):
+    '''
+    funcion: crea un frame para ingresar la carrera
+    e: una variable
+    s:
+    '''
+    global a
     ventanaCarrera = Tk() # crea una ventana
     ventanaCarrera.title("ventana reto 6")#titulo de la ventana
     ventanaCarrera.geometry("900x800")#tamaño de la ventana
@@ -186,13 +207,22 @@ def reporteCarrera(var1):
     panelCarrera = Frame(ventanaCarrera,bg='RoyalBlue3', width = 900, height = 800)
     panelCarrera.place(x=0, y=0)
     inputTitulo = Label(panelCarrera,text = 'ingrese la carrera deseada:',bg ='snow', fg = 'gray10',font = ('',15)).place(x=25,y=200)
-    inputCarrera = Entry.insert(panelCarrera).place(x=300,y=200)
+    inputCarrera = Entry(panelCarrera)
+    inputCarrera.place(x=300,y=200)
+    def crear(a):
+        var = inputCarrera.get()
+        return crearHTMLCarrera(a,var)
     labelTituloCarrera = Label(panelCarrera, text = "generar reporte de carreras", bg ='snow', fg = 'gray10',font = ('',20))
     labelTituloCarrera.place(x=325,y=25)
-    botonGenerar = Button(panelCarrera,text='generar reporte',width=30,height=2,command = lambda:crearHTMLCarrera(var1,inputCarrera))
+    botonGenerar = Button(panelCarrera,text='generar reporte',width=30,height=2,command = lambda:crear(var1))
     botonGenerar.place(x=300,y=300)
     return ''
 def boton6():
+    '''
+    funcion: corre la funcion del reto 6 y crea una ventana
+    e:
+    s:
+    '''
     global a
     global c
     ventana6 = Tk() # crea una ventana
@@ -204,7 +234,8 @@ def boton6():
     entradaSede = separarLista(a)
     labelTitulo6 = Label(panel6, text = "generar reportes", bg ='snow', fg = 'gray10',font = ('',20)).place(x=325,y=20)
     botonReporteSede = Button(panel6,text='1)reporte por sede',width=30,height=2,command=lambda:HTMLSede(entradaSede)).place(x=350,y=150)
-    botonReporteCarrera = Button(panel6,text='2)reporte por carrera',width=30,height=2,command=lambda:reporteCarrera(a)).place(x=350,y=200)
+    botonReporteCarrera = Button(panel6,text='2)reporte por carrera',width=30,height=2,command=lambda:reporteCarrera(a))
+    botonReporteCarrera.place(x=350,y=200)
     botonReporteMentor = Button(panel6,text ='3)reporte por mentor',width=30,height=2,command=lambda:crearHTMLMentores(c)).place(x=350,y=250)
     return ''
 def boton7():
@@ -214,8 +245,13 @@ def boton7():
     s:
     '''
     crearExcel(a,b)
-    
+    return ''
 def boton8():
+    '''
+    funcion: reto 8 enviar correos
+    e:
+    s:
+    '''
     ventana8 = Tk() # crea una ventana
     ventana8.title("ventana reto 8")#titulo de la ventana
     ventana8.geometry("900x800")#tamaño de la ventana
@@ -229,8 +265,16 @@ def boton8():
     tituloInput = Label(panel8, text = 'inserte el correo receptor', bg = 'snow', fg = 'gray10', font = ('',15))
     tituloInput.place(x=80,y=100)
     botonEnviar = Button(panel8,text = 'enviar',width=30,height=2,command=lambda: enviarCorreos(inputCorreo)).place(x = 325, y = 200)
+    return ''
 def boton9():
+    '''
+    funcion: cerrar la ventana principal
+    e:
+    s:
+    '''
     ventana.destroy()
+    print('gracias por usar el sistema integratec!')
+    return ''
 #BOTONES DEL MENU PRINCIPAL
 boton1 = Button(panel,text = '1)Estudiante por sede',width=30, height = 2, command = boton1).place(x=350,y=150)
 boton2 = Button(panel,text = '2)Estudiantes de carrera por sede',width=30, height = 2, command = boton2).place(x=350,y=200)
