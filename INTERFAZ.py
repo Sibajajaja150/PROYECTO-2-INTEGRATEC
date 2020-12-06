@@ -131,9 +131,10 @@ def boton2():
     e:
     s:
     '''
-    a = getCorreo(listaEstudiantes(listaGlobal))
-    print (a)
-    return ''
+    if listaGlobal != []:
+        a = getCorreo(listaEstudiantes(listaGlobal))
+        print (a)
+        return ''
 def boton3():
     global listaGlobal
     global b
@@ -142,10 +143,11 @@ def boton3():
     e:
     s:
     '''
-    b = getCorreo(listaMentores(listaGlobal))
-    grabar("listaMentores.txt", lista)
-    print (b)
-    return ''
+    if listaGlobal != []:
+        b = getCorreo(listaMentores(listaGlobal))
+        grabar("listaMentores.txt", lista)
+        print (b)
+        return ''
 def boton4():
     global a
     global b
@@ -155,47 +157,49 @@ def boton4():
     e:
     s:
     '''
-    c = asignarMentores(a, b)
-    print ("Mentores asignados con exito")
-    return ''
+    if a != [] and b !+= []:
+        c = asignarMentores(a, b)
+        print ("Mentores asignados con exito")
+        return ''
 def boton5():
     '''
     funcion: crear una nueva ventana para el efectuar el reto 5
     e:
     s: una ventana
     '''
-    global a
-    diccionario = makeDicc(a)
-    ventana5 = Tk() # crea una ventana
-    ventana5.title("ventana reto 5")#titulo de la ventana
-    ventana5.geometry("900x800")#tamaño de la ventana
-    ventana5.resizable(True, True)#opcionde modifacar el tamaño
-    panel5 = Frame(ventana5, bg='RoyalBlue3', width = 900, height = 800)
-    panel5.place(x=0, y=0)
-    labelTitulo5 = Label(panel5, text = "actualizar estudiante", bg ='snow', fg = 'gray10',font = ('',20))
-    labelTitulo5.place(x=100,y=25)
-    carne = Label(panel5, text = 'carne del estudiante:', bg = 'snow', fg = 'gray10', font = ('',15))
-    carne.place(x=80,y=100)
-    inputCarne = Entry(panel5)
-    inputCarne.place(x = 350, y = 100)
-    nombre = Label(panel5, text = 'nuevo nombre del estudiante:', bg = 'snow', fg = 'gray10', font = ('',15))
-    nombre.place(x=80,y=200)
-    inputNombre = Entry(panel5)
-    inputNombre.place(x=350,y=200)
-    telefono = Label(panel5, text = 'nuevo telefono:', bg = 'snow', fg = 'gray10', font = ('',15))
-    telefono.place(x=80,y=300)
-    inputTelefono = Entry(panel5)
-    inputTelefono.place(x=350,y=300)
-    carne = Label(panel5, text = 'nuevo correo:', bg = 'snow', fg = 'gray10', font = ('',15))
-    carne.place(x=80,y=400)
-    inputCorreo = Entry(panel5)
-    inputCorreo.place(x=350,y=400)
-    #diccionario = makeDicc(listaEstudiantes(listaCE))
-    #print(listaEstudiantes(listaCE))
-    #print(diccionario)
-    botonBuscar = Button(panel5,text = 'buscar',width=30, height = 2, command = lambda: actualizarEstudiante(inputCarne.get(),inputNombre.get(),inputTelefono.get(),inputCorreo.get(),diccionario))
-    botonBuscar.place(x=500,y=100)
-    return ''
+    if a != []:
+        global a
+        diccionario = makeDicc(a)
+        ventana5 = Tk() # crea una ventana
+        ventana5.title("ventana reto 5")#titulo de la ventana
+        ventana5.geometry("900x800")#tamaño de la ventana
+        ventana5.resizable(True, True)#opcionde modifacar el tamaño
+        panel5 = Frame(ventana5, bg='RoyalBlue3', width = 900, height = 800)
+        panel5.place(x=0, y=0)
+        labelTitulo5 = Label(panel5, text = "actualizar estudiante", bg ='snow', fg = 'gray10',font = ('',20))
+        labelTitulo5.place(x=100,y=25)
+        carne = Label(panel5, text = 'carne del estudiante:', bg = 'snow', fg = 'gray10', font = ('',15))
+        carne.place(x=80,y=100)
+        inputCarne = Entry(panel5)
+        inputCarne.place(x = 350, y = 100)
+        nombre = Label(panel5, text = 'nuevo nombre del estudiante:', bg = 'snow', fg = 'gray10', font = ('',15))
+        nombre.place(x=80,y=200)
+        inputNombre = Entry(panel5)
+        inputNombre.place(x=350,y=200)
+        telefono = Label(panel5, text = 'nuevo telefono:', bg = 'snow', fg = 'gray10', font = ('',15))
+        telefono.place(x=80,y=300)
+        inputTelefono = Entry(panel5)
+        inputTelefono.place(x=350,y=300)
+        carne = Label(panel5, text = 'nuevo correo:', bg = 'snow', fg = 'gray10', font = ('',15))
+        carne.place(x=80,y=400)
+        inputCorreo = Entry(panel5)
+        inputCorreo.place(x=350,y=400)
+        #diccionario = makeDicc(listaEstudiantes(listaCE))
+        #print(listaEstudiantes(listaCE))
+        #print(diccionario)
+        botonBuscar = Button(panel5,text = 'buscar',width=30, height = 2, command = lambda: actualizarEstudiante(inputCarne.get(),inputNombre.get(),inputTelefono.get(),inputCorreo.get(),diccionario))
+        botonBuscar.place(x=500,y=100)
+        return ''
 def reporteCarrera(var1):
     '''
     funcion: crea un frame para ingresar la carrera
@@ -291,6 +295,4 @@ boton9 = Button(panel,text = '9)Salir',width=30, height = 2,command = boton9).pl
 
 ventana.mainloop() #LLAMADA PRINCIPAL
 
-#print(validarEstudiantesPorSede('5','6','8','12','10'))
-#listaCE = [["CTCC", crearLista(crearListaCarreras(matrizSede[0]), crearListaEstudiantes(matrizSede[0]))], ["CTLSC", crearLista(crearListaCarreras(matrizSede[1]), crearListaEstudiantes(matrizSede[1]))], ["CTLSJ", crearLista(crearListaCarreras(matrizSede[2]), crearListaEstudiantes(matrizSede[2]))], ["CAA", crearLista(crearListaCarreras(matrizSede[3]), crearListaEstudiantes(matrizSede[3]))], ["CAL", crearLista(crearListaCarreras(matrizSede[4]), crearListaEstudiantes(matrizSede[4]))]]
-#ventana.mainloop()
+

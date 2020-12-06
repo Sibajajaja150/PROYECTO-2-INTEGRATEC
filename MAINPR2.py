@@ -1,6 +1,6 @@
 #Elaborado por : Diego Vega y Esteba Sibaja
 #Fecha de creacion: 18/11/2020 8:34pm
-#ultima modificacion: 5/12/2020 11:05pm
+#ultima modificacion: XXXX
 #version: 3.8.6
 #IMPORTACION DE LIBRERIAS
 from bs4 import BeautifulSoup
@@ -463,11 +463,3 @@ def crearExcel(lista1, lista2):
     for i in lista2:
         file.write(i[0]+" "+' , '+i[1]+" "+' , '" 0 "+" "+' , '+i[2]+" "+' , '+i[3]+" "+' , '+" 0 "+" "+' , '+i[4] + '\n')
     return ""
-a = getCorreo(listaEstudiantes(listaCE(validarEstudiantesPorSede('2', '4', '11', '18', '25'))))
-#b = asignarMentores(a, getCorreo(listaMentores(listaCE)))
-#crearExcel(getCorreo(a), getCorreo(listaMentores(listaCE)))
-#enviarCorreos("vega.diego02@gmail.com")
-#print(listaCE(validarEstudiantesPorSede('2', '4', '11', '18', '25')))
-#print(makeDicc(getCorreo(listaMentores(listaCE(validarEstudiantesPorSede('2', '4', '11', '18', '25'))))))
-#crearHTMLCarrera(a, 'Ingeniería en Computación ')
-#crearHTMLCarrera(a, "Ingeniería en Computación ")
