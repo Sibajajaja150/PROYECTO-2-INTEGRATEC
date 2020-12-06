@@ -12,6 +12,7 @@ import names
 import random
 import datetime
 import csv 
+import re
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 archivo = ""
@@ -29,6 +30,9 @@ lista = []
 for i in info:
     if i != "":
         lista.append(i) #Se crea una lista con las sedes y las carreras
+#E: una lista
+#S: una lista
+#A partir de una lista, divide la lista segun la sede y elimina las carreras repetidas
 def crearListaSJ(lista):
     listaSJ = []
     for i in lista[1:]:
@@ -38,6 +42,9 @@ def crearListaSJ(lista):
             if i not in listaSJ:
                 listaSJ += [i]
     return listaSJ
+#E: una lista
+#S: una lista
+#A partir de una lista, divide la lista segun la sede y elimina las carreras repetidas
 def crearListaC (lista):
     listaC = []
     for i in lista[8:]:
@@ -47,6 +54,9 @@ def crearListaC (lista):
             if i not in listaC:
                 listaC += [i]
     return listaC
+#E: una lista
+#S: una lista
+#A partir de una lista, divide la lista segun la sede y elimina las carreras repetidas
 def crearListaSC(lista):
     listaSC = []
     for i in lista[48:]:
@@ -56,6 +66,9 @@ def crearListaSC(lista):
             if i not in listaSC:
                 listaSC += [i]
     return listaSC
+#E: una lista
+#S: una lista
+#A partir de una lista, divide la lista segun la sede y elimina las carreras repetidas
 def crearListaL(lista):
     listaL = []
     for i in lista[61:]:
@@ -65,6 +78,9 @@ def crearListaL(lista):
             if i not in listaL:
                 listaL += [i]
     return listaL
+#E: una lista
+#S: una lista
+#A partir de una lista, divide la lista segun la sede y elimina las carreras repetidas
 def crearListaA(lista):
     listaA = []
     for i in lista[68:]:
@@ -74,22 +90,34 @@ def crearListaA(lista):
             if i not in listaA:
                 listaA += [i]
     return listaA
+#E: una lista y un numero
+#S: una lista
+#Crea una lista con numeros aleatorios con la misma longitud que la ingresada
 def crearListaR(n, lista):
     listaR = []
     while len(listaR) != len(lista):
         listaR += [random.randint(0,n)]
     return listaR
+#E: una lista
+#S: un numero
+#Suma todos los numeros de una lista
 def sumaLista(lista):
     res = 0
     for i in lista:
         res += i
-    return res        
+    return res    
+#E: un numero y una lista
+#S: una lista
+#Crea una lista cuya sumatoria de digitos da n    
 def crearListaRes(n, lista):
     res = ""
     while n != res:
         i = crearListaR(n, lista)
         res = sumaLista(i)
     return i
+#E: una lista y un numero
+#S: un diccionario
+#Crea un diccionario con keys iguales a las carreras y values iguales a numeros
 def asignarE(lista, num):
     dicc = {}
     listaR = crearListaRes(num, lista)
@@ -98,36 +126,45 @@ def asignarE(lista, num):
         dicc[i] = listaR[n]
         n += 1
     return dicc
+#Crea una matriz basado en los numeros dados
 def estudiantesPorSede(a,b,c,d,e):
     matrizDicc = [["CTCC", asignarE(crearListaC(lista)[:10], a)],["CTLSC", asignarE(crearListaSC(lista), b)],["CTLSJ", asignarE(crearListaSJ(lista), c)],["CAA", asignarE(crearListaA(lista), d)],["CAL", asignarE(crearListaL(lista), e)]]
     return matrizDicc
+#Valida si un str es un numero
 def isNum(string):
     try:
         return type(eval(string)) == int
     except:
         return False
+#Valida que los digitos ingresados sean numeros
 def validarEstudiantesPorSede(a,b,c,d,e):
     if isNum(a) and isNum(b) and isNum(c) and isNum(d) and isNum(e):
         matrizSede = estudiantesPorSede(int(a), int(b), int(c), int(d), int(e))
         return matrizSede
+#Obtiene los keys del diccionario indicado
 def crearListaCarreras(lista):
     listaN = [] 
     k = lista[1].keys()
     for x in k:
         listaN += [x]
     return listaN
+#Obtiene los values del diccionario
 def crearListaEstudiantes(lista):
     listaN = [] 
     k = lista[1].values()
     for x in k:
         listaN += [x]
     return listaN
+#E: 2 listas
+#S: una lista
+#Junta las 2 listas en una sola lista con listas
 def crearLista(lista1, lista2):
     listaF = []
     for i in lista1:
         listaF += [[i, lista2[0]]]
         lista2.pop(0)
     return listaF
+#Dado una lista crea una lista con la informacion del estudiante
 def listaEstudiantes(lista):
     listaN = []
     contador = 0
@@ -141,14 +178,17 @@ def listaEstudiantes(lista):
                     x -= 1
         contador += 1
     return listaN
+#Obtiene los digitos de un diccionario y los convierte en una matriz
 def listaCE(dicc):
     lista = [["CTCC", crearLista(crearListaCarreras(dicc[0]), crearListaEstudiantes(dicc[0]))], ["CTLSC", crearLista(crearListaCarreras(dicc[1]), crearListaEstudiantes(dicc[1]))], ["CTLSJ", crearLista(crearListaCarreras(dicc[2]), crearListaEstudiantes(dicc[2]))], ["CAA", crearLista(crearListaCarreras(dicc[3]), crearListaEstudiantes(dicc[3]))], ["CAL", crearLista(crearListaCarreras(dicc[4]), crearListaEstudiantes(dicc[4]))]]
     return lista
+#Convierte una lista en diccionario
 def makeDicc(lista):
     dicc = {}
     for i in lista:
         dicc[i[0]] = i[1:]
     return dicc
+#Basado en una lista crea otra con el 0.05 de su capacidad
 def listaMentores(lista):
     listaN = []
     contador = 0
@@ -161,6 +201,7 @@ def listaMentores(lista):
                     x -= 1
         contador += 1
     return listaN
+#Crea una lista juntando a los mentores y los estudiantes
 def asignarMentores(lista1, lista2):
     listaConjunto = []
     if lista2 == []:
@@ -173,6 +214,7 @@ def asignarMentores(lista1, lista2):
         if lista2 == []:
             break
     return listaConjunto
+#Retorna una lista con el nombre y el apellido de una persona
 def getNameLastName(nombre):
     listaN = [[""], [""]]
     cont = 0
@@ -184,6 +226,7 @@ def getNameLastName(nombre):
             continue
         listaN[cont][0] += i
     return listaN
+#A los estudiantes agrega el correo
 def getCorreo(lista):
     correos = []
     for i in lista:
@@ -192,18 +235,24 @@ def getCorreo(lista):
         correos += [correo]
         i[-1] = correo
     return lista
-#dicc=makeDicc(listaEstudiantes(listaCE))
-def actualizarEstudiante(carnet, nombre, telefono, correo, dicc):
-    print(dicc[carnet])
-    dicc[carnet][0] = nombre
-    dicc[carnet][1] = telefono
-    dicc[carnet][5] = correo
-    print(dicc[carnet])
-    return ""
-#print(validarEstudiantesPorSede('2', '4', '11', '18', '25'))
-#listaCE = [["CTCC", crearLista(crearListaCarreras(matrizSede[0]), crearListaEstudiantes(matrizSede[0]))], ["CTLSC", crearLista(crearListaCarreras(matrizSede[1]), crearListaEstudiantes(matrizSede[1]))], ["CTLSJ", crearLista(crearListaCarreras(matrizSede[2]), crearListaEstudiantes(matrizSede[2]))], ["CAA", crearLista(crearListaCarreras(matrizSede[3]), crearListaEstudiantes(matrizSede[3]))], ["CAL", crearLista(crearListaCarreras(matrizSede[4]), crearListaEstudiantes(matrizSede[4]))]]
-#print(listaCE)
-#diccEstudiantes = {listaCE[0][0]:listaCE[0][1], listaCE[1][0]:listaCE[1][1], listaCE[2][0]:listaCE[2][1], listaCE[3][0]:listaCE[3][1], listaCE[4][0]:listaCE[4][1]}
+#E: una lista y un carnet
+#S: una lista
+def encontrarEstudiante(lista, carnet):
+    for i in lista:
+        if i[0] == carnet:
+            return i
+    return []
+#Cambia los valores de un estudiante por los ingresados
+def actualizarEstudiante(carnet, nombre, telefono, correo, lista):
+    if encontrarEstudiante(lista, carnet) != []:
+        print(encontrarEstudiante(lista, carnet))
+        for i in lista:
+            if i[0] == carnet:
+                i[1] = nombre
+                i[2] = telefono
+                i[6] = correo
+    return lista
+#Dado una lista la separa por sedes
 def separarLista(lista):
     listaN = [["CTCC"], ["CTLSC"], ["CTLSJ"], ["CAA"], ["CAL"]]
     for i in lista:
@@ -218,6 +267,9 @@ def separarLista(lista):
         elif i[3] == "CAL":
             listaN[4] += [i]   
     return listaN
+#E: una lista y una sede
+#S: 
+#Crea un html con la sede insertada
 def crearHTMLSede(lista, sede):
     if sede.upper() == "CTCC":
         file = open("reporteSedeCartago.html", 'w')
@@ -307,6 +359,7 @@ def crearHTMLSede(lista, sede):
     else:
         print("Ingrese una sede existente")
     return ""
+#Crea 5 htmls con todas las sedes
 def HTMLSede(lista):
     crearHTMLSede(lista, "CTCC")
     crearHTMLSede(lista, "CTLSC")
@@ -314,12 +367,16 @@ def HTMLSede(lista):
     crearHTMLSede(lista, "CAA")
     crearHTMLSede(lista, "CAL")
     return ""
+#E: una lista, y un str
+#S: una lista
+#Obtiene una lista de listas con todos los estudiantes de esa carrera
 def separarCarrera(lista, carrera):
     listaN = []
     for i in lista:
         if i[4].upper() == carrera.upper():
             listaN += [i]
     return listaN
+#crea un html de la carrera indicada
 def crearHTMLCarrera(lista, carrera):
     lista = separarCarrera(lista, carrera)
     file = open("reporte "+carrera+".html", "w")
@@ -342,6 +399,7 @@ def crearHTMLCarrera(lista, carrera):
             file.write("\n")
             file.write("Correo: " + i[6])
     return ""
+#Crea un html con el nombre del mentor y la info de sus ahijados
 def crearHTMLMentores(lista):
     file = open("reporteMentores.html", "w")
     if lista == []:
@@ -368,22 +426,31 @@ def crearHTMLMentores(lista):
         file.write("\n")
         file.write("\n")
     return ""
+#Valida el correo ingresado
+def validarCorreo(correo):
+    if re.match("[\w\d.-]+\@[\w\d.-]+\.[\w\d.-_]", correo):
+        return True
+    return False
+#Dado un correo envia un archivo
 def enviarCorreos(correo):
     global archivo
-    mensaje = MIMEMultipart ("plain")
-    mensaje["From"] = "diegoesteban42069@gmail.com"
-    usuario = correo
-    mensaje["To"] = usuario
-    mensaje["Subject"] = "Reporte de Estudiantes IntegraTEC"
-    adjunto = MIMEBase("application", "octect-stream")
-    adjunto.set_payload(open(archivo,"rb").read())
-    adjunto.add_header("content-Disposition", "attachment; filename = 'BDIntegraTEC.csv'")
-    mensaje.attach(adjunto)
-    smtp = SMTP("smtp.gmail.com")
-    smtp.starttls()
-    smtp.login("diegoesteban42069@gmail.com", "420696969")
-    smtp.sendmail("diegoesteban42069@gmail.com", usuario, mensaje.as_bytes())
-    smtp.quit()
+    if validarCorreo(correo):
+        mensaje = MIMEMultipart ("plain")
+        mensaje["From"] = "diegoesteban42069@gmail.com"
+        usuario = correo
+        mensaje["To"] = usuario
+        mensaje["Subject"] = "Reporte de Estudiantes IntegraTEC"
+        adjunto = MIMEBase("application", "octect-stream")
+        adjunto.set_payload(open(archivo,"rb").read())
+        adjunto.add_header("content-Disposition", "attachment; filename = 'BDIntegraTEC.csv'")
+        mensaje.attach(adjunto)
+        smtp = SMTP("smtp.gmail.com")
+        smtp.starttls()
+        smtp.login("diegoesteban42069@gmail.com", "420696969")
+        smtp.sendmail("diegoesteban42069@gmail.com", usuario, mensaje.as_bytes())
+        smtp.quit()
+        return ""
+#Crea un Excel con la informacion de todos los estudiantes y mentores
 def crearExcel(lista1, lista2):
     global archivo
     hora = datetime.datetime.today()
@@ -396,11 +463,4 @@ def crearExcel(lista1, lista2):
     for i in lista2:
         file.write(i[0]+" "+' , '+i[1]+" "+' , '" 0 "+" "+' , '+i[2]+" "+' , '+i[3]+" "+' , '+" 0 "+" "+' , '+i[4] + '\n')
     return ""
-a = getCorreo(listaEstudiantes(listaCE(validarEstudiantesPorSede('2', '4', '11', '18', '25'))))
-#b = asignarMentores(a, getCorreo(listaMentores(listaCE)))
-#crearExcel(getCorreo(a), getCorreo(listaMentores(listaCE)))
-#enviarCorreos("vega.diego02@gmail.com")
-#print(listaCE(validarEstudiantesPorSede('2', '4', '11', '18', '25')))
-#print(makeDicc(getCorreo(listaMentores(listaCE(validarEstudiantesPorSede('2', '4', '11', '18', '25'))))))
-#crearHTMLCarrera(a, 'Ingeniería en Computación ')
-crearHTMLCarrera(a, "Ingeniería en Computación ")
+enviarCorreos("vega.diego02gmail.com")
