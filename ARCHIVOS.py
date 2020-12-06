@@ -1,7 +1,7 @@
 #elaborado por Esteban Sibaja y Diego Vega
 #fecha de creacion: 18/11/2020 8:34pm
-#ultima modificacion: XXXX
-#version: 3.8.1
+#ultima modificacion: 5/12/2020 11:05pm
+#version: 3.8.6
 #IMPORTACION DE LIBRERIAS
 import pickle
 from MAINPR2 import *
