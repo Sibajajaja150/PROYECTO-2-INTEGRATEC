@@ -1,7 +1,7 @@
 #elaborado por Esteban Sibaja y Diego Vega
 #fecha de creacion: 18/11/2020 8:34pm
-#ultima modificacion: XXXX
-#version: 3.8.1
+#ultima modificacion: 5/12/2020 11:05pm
+#version: 3.8.6
 #importacion  de librerias
 import tkinter
 from tkinter import *
@@ -133,6 +133,7 @@ def boton2():
     '''
     a = getCorreo(listaEstudiantes(listaGlobal))
     print (a)
+    return ''
 def boton3():
     global listaGlobal
     global b
@@ -144,6 +145,7 @@ def boton3():
     b = getCorreo(listaMentores(listaGlobal))
     grabar("listaMentores.txt", lista)
     print (b)
+    return ''
 def boton4():
     global a
     global b
@@ -155,6 +157,7 @@ def boton4():
     '''
     c = asignarMentores(a, b)
     print ("Mentores asignados con exito")
+    return ''
 def boton5():
     '''
     funcion: crear una nueva ventana para el efectuar el reto 5
