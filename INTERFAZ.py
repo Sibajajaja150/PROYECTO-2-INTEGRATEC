@@ -11,6 +11,9 @@ from MAINPR2 import *
 from ARCHIVOS import *
 ###################INTERFAZ GRAFICA###################
 matrizSede = []
+a = []
+b = []
+c = []
 #VENTANA DEL PROGRAMA
 ventana = Tk() # crea una ventana
 ventana.title("ventana integratec")#titulo de la ventana
@@ -54,7 +57,8 @@ def habilitarBotones(matrizCarrerasSede,estudiantes,mentores):
     else:
         boton5['state']=tkinter.NORMAL
 #FUNCIONES DE CADA BOTON
-
+def retornarMatrisSede(valor):
+    return valor
 def boton1():
     '''
     funcion: crea una nueva ventana para el reto 1
@@ -92,7 +96,8 @@ def boton1():
     inputCAL.place(x = 150, y = 300)
     botonGuardar = Button(panel1,text = 'guardar',width=30, height = 2, command = lambda: validarEstudiantesPorSede(inputCTCC.get(),inputCTSC.get(),inputCTSJ.get(),inputCAA.get(),inputCAL.get()))
     botonGuardar.place(x=150,y=400)
-    botonImprimir = Button(panel1,text = 'imprimir matriz',width=30, height = 2, command = lambda: print(matrizSede))
+    matrizSede = validarEstudiantesPorSede(inputCTCC.get(),inputCTSC.get(),inputCTSJ.get(),inputCAA.get(),inputCAL.get())
+    botonImprimir = Button(panel1,text = 'imprimir matriz',width=30, height = 2, command = lambda: retornarMatrisSede(matrizSede))
     botonImprimir.place(x=150,y=450)
     return ''
 def boton2():
@@ -157,9 +162,9 @@ def boton6():
     muestraReporte.place(x=350,y=350)
     labelTitulo5 = Label(panel6, text = "generar reportes", bg ='snow', fg = 'gray10',font = ('',20))
     labelTitulo5.place(x=325,y=25)
-    botonReporteSede = Button(panel6,text = '1)reporte por sede',width=30, height = 2, command = lambda: HTMLSede(separarLista(listaEstudiantes(listaCE)))).place(x=350,y=150)
-    botonReporteCarrera = Button(panel6,text = '1)reporte por carrera',width=30, height = 2, command = crearHTMLCarrera).place(x=350,y=200)
-    botonReporteMentor = Button(panel6,text = '1)reporte por mentor',width=30, height = 2, command = muestraReporte.insert(crearHTMLMentores)).place(x=350,y=250)
+    botonReporteSede = Button(panel6,text='1)reporte por sede',width=30,height=2,command=lambda:HTMLSede(separarLista(listaEstudiantes(listaCE)))).place(x=350,y=150)
+    botonReporteCarrera = Button(panel6,text='2)reporte por carrera',width=30,height=2,command=crearHTMLCarrera).place(x=350,y=200)
+    botonReporteMentor = Button(panel6,text ='3)reporte por mentor',width=30,height=2,command=lambda:crearHTMLMentores()).place(x=350,y=250)
     return ''
 def boton7():
     '''
