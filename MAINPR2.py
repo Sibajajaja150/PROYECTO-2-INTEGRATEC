@@ -403,4 +403,4 @@ a = getCorreo(listaEstudiantes(listaCE(validarEstudiantesPorSede('2', '4', '11',
 #print(listaCE(validarEstudiantesPorSede('2', '4', '11', '18', '25')))
 #print(makeDicc(getCorreo(listaMentores(listaCE(validarEstudiantesPorSede('2', '4', '11', '18', '25'))))))
 #crearHTMLCarrera(a, 'Ingeniería en Computación ')
-crearHTMLCarrera(a, "Ingeniería en Computación ")
+#crearHTMLCarrera(a, "Ingeniería en Computación ")
