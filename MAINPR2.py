@@ -163,6 +163,8 @@ def listaMentores(lista):
     return listaN
 def asignarMentores(lista1, lista2):
     listaConjunto = []
+    if lista2 == []:
+        return []
     for i in lista1:
         if i[3] == lista2[0][2] and i[4] == lista2[0][3]:
             i[5] = lista2[0][0]
@@ -311,6 +313,7 @@ def HTMLSede(lista):
     crearHTMLSede(lista, "CTLSJ")
     crearHTMLSede(lista, "CAA")
     crearHTMLSede(lista, "CAL")
+    return ""
 def separarCarrera(lista, carrera):
     listaN = []
     for i in lista:
@@ -338,8 +341,11 @@ def crearHTMLCarrera(lista, carrera):
             file.write("Mentor: " + i[5])
             file.write("\n")
             file.write("Correo: " + i[6])
+    return ""
 def crearHTMLMentores(lista):
     file = open("reporteMentores.html", "w")
+    if lista == []:
+        return ""
     for i in lista:
         file.write("Sede: " + i[0][2])
         file.write("\n")
@@ -361,6 +367,7 @@ def crearHTMLMentores(lista):
         file.write("Correo: " + i[1][6]) 
         file.write("\n")
         file.write("\n")
+    return ""
 def enviarCorreos(correo):
     global archivo
     mensaje = MIMEMultipart ("plain")
@@ -389,9 +396,11 @@ def crearExcel(lista1, lista2):
     for i in lista2:
         file.write(i[0]+" "+' , '+i[1]+" "+' , '" 0 "+" "+' , '+i[2]+" "+' , '+i[3]+" "+' , '+" 0 "+" "+' , '+i[4] + '\n')
     return ""
-#a = getCorreo(listaEstudiantes(listaCE))
+a = getCorreo(listaEstudiantes(listaCE(validarEstudiantesPorSede('2', '4', '11', '18', '25'))))
 #b = asignarMentores(a, getCorreo(listaMentores(listaCE)))
 #crearExcel(getCorreo(a), getCorreo(listaMentores(listaCE)))
 #enviarCorreos("vega.diego02@gmail.com")
 #print(listaCE(validarEstudiantesPorSede('2', '4', '11', '18', '25')))
 #print(makeDicc(getCorreo(listaMentores(listaCE(validarEstudiantesPorSede('2', '4', '11', '18', '25'))))))
+#crearHTMLCarrera(a, 'Ingeniería en Computación ')
+crearHTMLCarrera(a, "Ingeniería en Computación ")
