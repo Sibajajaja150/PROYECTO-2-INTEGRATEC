@@ -15,8 +15,8 @@ def grabar(nombreArchivoGrabar,lista):
     try:
         archivo = open(nombreArchivoGrabar,'wb')
         pickle.dump(lista,archivo)
-        print('\n',nombreArchivoGrabar,'modificado excitosamente!\n')
         archivo.close()
+        return ""
     except:
         print('error al grabar:',nombreArchivoGrabar)
 def leer(nombreArchivoLeer):
