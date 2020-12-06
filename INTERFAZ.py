@@ -155,21 +155,27 @@ def boton5():
     panel5 = Frame(ventana5, bg='RoyalBlue3', width = 900, height = 800)
     panel5.place(x=0, y=0)
     labelTitulo5 = Label(panel5, text = "actualizar estudiante", bg ='snow', fg = 'gray10',font = ('',20))
-    labelTitulo5.place(x=80,y=25)
-    carne = Label(panel5, text = 'CARNE DEL ESTUDIANTE:', bg = 'snow', fg = 'gray10', font = ('',15))
+    labelTitulo5.place(x=100,y=25)
+    carne = Label(panel5, text = 'carne del estudiante:', bg = 'snow', fg = 'gray10', font = ('',15))
     carne.place(x=80,y=100)
     inputCarne = Entry(panel5)
     inputCarne.place(x = 350, y = 100)
-    nombre = Entry(panel5)
-    nombre.place(x=350,y=150)
-    telefono = Entry(panel5)
-    telefono.place(x=350,y=200)
-    correo = Entry(panel5)
-    correo.place(x=350,y=250)
+    nombre = Label(panel5, text = 'nuevo nombre del estudiante:', bg = 'snow', fg = 'gray10', font = ('',15))
+    nombre.place(x=80,y=200)
+    inputNombre = Entry(panel5)
+    inputNombre.place(x=350,y=200)
+    telefono = Label(panel5, text = 'nuevo telefono:', bg = 'snow', fg = 'gray10', font = ('',15))
+    telefono.place(x=80,y=300)
+    inputTelefono = Entry(panel5)
+    inputTelefono.place(x=350,y=300)
+    carne = Label(panel5, text = 'nuevo correo:', bg = 'snow', fg = 'gray10', font = ('',15))
+    carne.place(x=80,y=400)
+    inputCorreo = Entry(panel5)
+    inputCorreo.place(x=350,y=400)
     #diccionario = makeDicc(listaEstudiantes(listaCE))
     #print(listaEstudiantes(listaCE))
     #print(diccionario)
-    botonBuscar = Button(panel5,text = 'buscar',width=30, height = 2, command = lambda: actualizarEstudiante(inputCarne.get(),nombre.get(),telefono.get(),correo.get(),diccionario))
+    botonBuscar = Button(panel5,text = 'buscar',width=30, height = 2, command = lambda: actualizarEstudiante(inputCarne.get(),inputNombre.get(),inputTelefono.get(),inputCorreo.get(),diccionario))
     botonBuscar.place(x=500,y=100)
     return ''
 def reporteCarrera(var1):
@@ -195,15 +201,19 @@ def boton6():
     ventana6.resizable(True, True)#opcionde modifacar el tamaño
     panel6 = Frame(ventana6,bg='RoyalBlue3', width = 900, height = 800)
     panel6.place(x=0, y=0)
+    entradaSede = separarLista(a)
     labelTitulo6 = Label(panel6, text = "generar reportes", bg ='snow', fg = 'gray10',font = ('',20)).place(x=325,y=20)
-    botonReporteSede = Button(panel6,text='1)reporte por sede',width=30,height=2,command=lambda:HTMLSede(separarLista(a)).place(x=350,y=150))
+    botonReporteSede = Button(panel6,text='1)reporte por sede',width=30,height=2,command=lambda:HTMLSede(entradaSede)).place(x=350,y=150)
     botonReporteCarrera = Button(panel6,text='2)reporte por carrera',width=30,height=2,command=lambda:reporteCarrera(a)).place(x=350,y=200)
     botonReporteMentor = Button(panel6,text ='3)reporte por mentor',width=30,height=2,command=lambda:crearHTMLMentores(c)).place(x=350,y=250)
     return ''
 def boton7():
     '''
-    FALTA FUNCION CREAR DATOS EXCEL
+    funcion: crea en la base de datos un excel
+    e:
+    s:
     '''
+    crearExcel(a,b)
     
 def boton8():
     ventana8 = Tk() # crea una ventana
@@ -218,6 +228,7 @@ def boton8():
     inputCorreo.place(x = 325, y = 100)
     tituloInput = Label(panel8, text = 'inserte el correo receptor', bg = 'snow', fg = 'gray10', font = ('',15))
     tituloInput.place(x=80,y=100)
+    botonEnviar = Button(panel8,text = 'enviar',width=30,height=2,command=lambda: enviarCorreos(inputCorreo)).place(x = 325, y = 200)
 def boton9():
     ventana.destroy()
 #BOTONES DEL MENU PRINCIPAL
