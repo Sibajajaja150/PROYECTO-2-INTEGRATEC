@@ -186,7 +186,7 @@ def reporteCarrera(var1):
     panelCarrera = Frame(ventanaCarrera,bg='RoyalBlue3', width = 900, height = 800)
     panelCarrera.place(x=0, y=0)
     inputTitulo = Label(panelCarrera,text = 'ingrese la carrera deseada:',bg ='snow', fg = 'gray10',font = ('',15)).place(x=25,y=200)
-    inputCarrera = Entry(panelCarrera).place(x=300,y=200)
+    inputCarrera = Entry.insert(panelCarrera).place(x=300,y=200)
     labelTituloCarrera = Label(panelCarrera, text = "generar reporte de carreras", bg ='snow', fg = 'gray10',font = ('',20))
     labelTituloCarrera.place(x=325,y=25)
     botonGenerar = Button(panelCarrera,text='generar reporte',width=30,height=2,command = lambda:crearHTMLCarrera(var1,inputCarrera))
