@@ -15,7 +15,6 @@ import csv
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 archivo = ""
-listaCE = []
 matrizSede = []
 #Se extrae la informacion de la pagina del tec
 url = "https://www.tec.ac.cr/carreras"
@@ -108,7 +107,6 @@ def isNum(string):
     except:
         return False
 def validarEstudiantesPorSede(a,b,c,d,e):
-    global matrizSede
     if isNum(a) and isNum(b) and isNum(c) and isNum(d) and isNum(e):
         matrizSede = estudiantesPorSede(int(a), int(b), int(c), int(d), int(e))
         return matrizSede
@@ -143,6 +141,10 @@ def listaEstudiantes(lista):
                     x -= 1
         contador += 1
     return listaN
+def listaCE(dicc):
+    print(dicc)
+    lista = [["CTCC", crearLista(crearListaCarreras(dicc[0]), crearListaEstudiantes(dicc[0]))], ["CTLSC", crearLista(crearListaCarreras(dicc[1]), crearListaEstudiantes(dicc[1]))], ["CTLSJ", crearLista(crearListaCarreras(dicc[2]), crearListaEstudiantes(dicc[2]))], ["CAA", crearLista(crearListaCarreras(dicc[3]), crearListaEstudiantes(dicc[3]))], ["CAL", crearLista(crearListaCarreras(dicc[4]), crearListaEstudiantes(dicc[4]))]]
+    return lista
 def makeDicc(lista):
     dicc = {}
     for i in lista:
@@ -392,3 +394,4 @@ def crearExcel(lista1, lista2):
 #b = asignarMentores(a, getCorreo(listaMentores(listaCE)))
 #crearExcel(getCorreo(a), getCorreo(listaMentores(listaCE)))
 #enviarCorreos("vega.diego02@gmail.com")
+print(listaCE(validarEstudiantesPorSede('2', '4', '11', '18', '25')))
