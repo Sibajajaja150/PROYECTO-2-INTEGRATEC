@@ -157,7 +157,7 @@ def boton4():
     e:
     s:
     '''
-    if a != [] and b !+= []:
+    if a != [] and b != []:
         c = asignarMentores(a, b)
         print ("Mentores asignados con exito")
         return ''
@@ -167,8 +167,8 @@ def boton5():
     e:
     s: una ventana
     '''
+    global a
     if a != []:
-        global a
         diccionario = makeDicc(a)
         ventana5 = Tk() # crea una ventana
         ventana5.title("ventana reto 5")#titulo de la ventana
