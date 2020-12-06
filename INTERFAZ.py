@@ -172,20 +172,32 @@ def boton5():
     botonBuscar = Button(panel5,text = 'buscar',width=30, height = 2, command = lambda: actualizarEstudiante(inputCarne.get(),nombre.get(),telefono.get(),correo.get(),diccionario))
     botonBuscar.place(x=500,y=100)
     return ''
+def reporteCarrera(var1):
+    ventanaCarrera = Tk() # crea una ventana
+    ventanaCarrera.title("ventana reto 6")#titulo de la ventana
+    ventanaCarrera.geometry("900x800")#tamaño de la ventana
+    ventanaCarrera.resizable(True, True)#opcionde modifacar el tamaño
+    panelCarrera = Frame(ventanaCarrera,bg='RoyalBlue3', width = 900, height = 800)
+    panelCarrera.place(x=0, y=0)
+    inputTitulo = Label(panelCarrera,text = 'ingrese la carrera deseada:',bg ='snow', fg = 'gray10',font = ('',15)).place(x=25,y=200)
+    inputCarrera = Entry(panelCarrera).place(x=300,y=200)
+    labelTituloCarrera = Label(panelCarrera, text = "generar reporte de carreras", bg ='snow', fg = 'gray10',font = ('',20))
+    labelTituloCarrera.place(x=325,y=25)
+    botonGenerar = Button(panelCarrera,text='generar reporte',width=30,height=2,command = lambda:crearHTMLCarrera(var1,inputCarrera))
+    botonGenerar.place(x=300,y=300)
+    return ''
 def boton6():
     global a
+    global c
     ventana6 = Tk() # crea una ventana
     ventana6.title("ventana reto 6")#titulo de la ventana
     ventana6.geometry("900x800")#tamaño de la ventana
     ventana6.resizable(True, True)#opcionde modifacar el tamaño
     panel6 = Frame(ventana6,bg='RoyalBlue3', width = 900, height = 800)
     panel6.place(x=0, y=0)
-    muestraReporte = Entry(panel6)
-    muestraReporte.place(x=350,y=350)
-    labelTitulo5 = Label(panel6, text = "generar reportes", bg ='snow', fg = 'gray10',font = ('',20))
-    labelTitulo5.place(x=325,y=25)
+    labelTitulo6 = Label(panel6, text = "generar reportes", bg ='snow', fg = 'gray10',font = ('',20)).place(x=325,y=20)
     botonReporteSede = Button(panel6,text='1)reporte por sede',width=30,height=2,command=lambda:HTMLSede(separarLista(a)).place(x=350,y=150))
-    botonReporteCarrera = Button(panel6,text='2)reporte por carrera',width=30,height=2,command=crearHTMLCarrera(a, carrera)).place(x=350,y=200)
+    botonReporteCarrera = Button(panel6,text='2)reporte por carrera',width=30,height=2,command=lambda:reporteCarrera(a)).place(x=350,y=200)
     botonReporteMentor = Button(panel6,text ='3)reporte por mentor',width=30,height=2,command=lambda:crearHTMLMentores(c)).place(x=350,y=250)
     return ''
 def boton7():
