@@ -59,6 +59,9 @@ def habilitarBotones(matrizCarrerasSede,estudiantes,mentores):
 #FUNCIONES DE CADA BOTON
 def retornarMatrisSede(valor):
     return valor
+def multitask(var1,var2,var3,var4,var5,lista):
+    validarEstudiantesPorSede(var1,var2,var3,var4,var5)
+    lista
 def boton1():
     '''
     funcion: crea una nueva ventana para el reto 1
@@ -66,6 +69,7 @@ def boton1():
     s: una ventana 
     '''
     global matrizSede
+    global listaCE
     ventana1 = Tk() # crea una ventana
     ventana1.title("ventana reto 1")#titulo de la ventana
     ventana1.geometry("900x800")#tamaño de la ventana
@@ -97,8 +101,8 @@ def boton1():
     botonGuardar = Button(panel1,text = 'guardar',width=30, height = 2, command = lambda: validarEstudiantesPorSede(inputCTCC.get(),inputCTSC.get(),inputCTSJ.get(),inputCAA.get(),inputCAL.get()))
     botonGuardar.place(x=150,y=400)
     matrizSede = validarEstudiantesPorSede(inputCTCC.get(),inputCTSC.get(),inputCTSJ.get(),inputCAA.get(),inputCAL.get())
-    botonImprimir = Button(panel1,text = 'imprimir matriz',width=30, height = 2, command = lambda: retornarMatrisSede(matrizSede))
-    botonImprimir.place(x=150,y=450)
+    listaCE = [["CTCC", crearLista(crearListaCarreras(matrizSede[0]), crearListaEstudiantes(matrizSede[0]))], ["CTLSC", crearLista(crearListaCarreras(matrizSede[1]), crearListaEstudiantes(matrizSede[1]))], ["CTLSJ", crearLista(crearListaCarreras(matrizSede[2]), crearListaEstudiantes(matrizSede[2]))], ["CAA", crearLista(crearListaCarreras(matrizSede[3]), crearListaEstudiantes(matrizSede[3]))], ["CAL", crearLista(crearListaCarreras(matrizSede[4]), crearListaEstudiantes(matrizSede[4]))]]
+    print(matrizSede)
     return ''
 def boton2():
     '''
